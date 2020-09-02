@@ -13,3 +13,11 @@ class LoginRegisterPageStrings {
   final String confirmPassword = "Confirm password";
   final String haveAnAccount = "Have an account?";
 }
+class Names {
+  String appBarName = "Order Food";
+}
+
+class FoodElements {
+  String ingridients = 'Ingredients: ';
+}
+
