@@ -1,11 +1,14 @@
+import 'package:FoodOrder/utils/Providers/categoryChangeNotifier.dart';
 import 'package:FoodOrder/utils/colors.dart';
 import 'package:FoodOrder/utils/sizeconfig.dart';
 import 'package:FoodOrder/utils/strings.dart';
 import 'package:FoodOrder/view/loginAndRegister/login/pages/home.dart';
 import 'package:FoodOrder/view/loginAndRegister/login/pages/login.dart';
+import 'package:FoodOrder/view/mainScreen/pages/listOfFood.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class RegisterCard extends StatefulWidget {
   RegisterCard({Key key}) : super(key: key);
@@ -30,6 +33,7 @@ class _RegisterCardState extends State<RegisterCard> {
     Pattern pattern =
         r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$';
     RegExp regex = new RegExp(pattern);
+    if (value.length == null || value == '') return 'Field cannot be empty';
     if (!regex.hasMatch(value)) {
       return 'Email format is invalid';
     } else {
@@ -181,11 +185,17 @@ class _RegisterCardState extends State<RegisterCard> {
                                                   Navigator.pushAndRemoveUntil(
                                                       context,
                                                       MaterialPageRoute(
-                                                          builder: (context) =>
-                                                              HomePage(
-                                                                uid: authResult
-                                                                    .user.uid,
-                                                              )),
+                                                        builder: (context) =>
+                                                            ChangeNotifierProvider<
+                                                                CategoryChangeIndex>(
+                                                          child: ListOfFoods(
+                                                              uid: authResult
+                                                                  .user.uid),
+                                                          create: (BuildContext
+                                                                  context) =>
+                                                              CategoryChangeIndex(),
+                                                        ),
+                                                      ),
                                                       (_) => false),
                                                   emailInputController.clear(),
                                                   pwdInputController.clear(),

@@ -1,11 +1,14 @@
+import 'package:FoodOrder/utils/Providers/categoryChangeNotifier.dart';
 import 'package:FoodOrder/utils/colors.dart';
 import 'package:FoodOrder/utils/sizeconfig.dart';
 import 'package:FoodOrder/utils/strings.dart';
 import 'package:FoodOrder/view/loginAndRegister/login/pages/home.dart';
 import 'package:FoodOrder/view/loginAndRegister/register/pages/register.dart';
+import 'package:FoodOrder/view/mainScreen/pages/listOfFood.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class LoginCard extends StatefulWidget {
   LoginCard({Key key}) : super(key: key);
@@ -29,6 +32,7 @@ class _LoginCardState extends State<LoginCard> {
     Pattern pattern =
         r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$';
     RegExp regex = new RegExp(pattern);
+    if (value.length == null || value == '') return 'Field cannot be empty';
     if (!regex.hasMatch(value)) {
       return 'Email format is invalid';
     } else {
@@ -143,19 +147,27 @@ class _LoginCardState extends State<LoginCard> {
                                     .signInWithEmailAndPassword(
                                         email: emailInputController.text,
                                         password: pwdInputController.text)
-                                    .then((authresult) => Firestore.instance
+                                    .then((authResult) => Firestore.instance
                                         .collection("users")
-                                        .document(authresult.user.uid)
+                                        .document(authResult.user.uid)
                                         .get()
-                                        .then((DocumentSnapshot result) =>
-                                            Navigator.pushReplacement(
-                                                context,
-                                                MaterialPageRoute(
-                                                    builder: (context) =>
-                                                        HomePage(
-                                                          uid: authresult
-                                                              .user.uid,
-                                                        ))))
+                                        .then(
+                                          (DocumentSnapshot result) =>
+                                              Navigator.pushReplacement(
+                                            context,
+                                            MaterialPageRoute(
+                                              builder: (context) =>
+                                                  ChangeNotifierProvider<
+                                                      CategoryChangeIndex>(
+                                                child: ListOfFoods(
+                                                    uid: authResult.user.uid),
+                                                create:
+                                                    (BuildContext context) =>
+                                                        CategoryChangeIndex(),
+                                              ),
+                                            ),
+                                          ),
+                                        )
                                         .catchError((err) => print(err)))
                                     .catchError((err) => print(err));
                               }
