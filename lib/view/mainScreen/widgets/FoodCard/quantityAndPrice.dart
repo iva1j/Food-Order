@@ -28,7 +28,7 @@ class _QuantityAndPriceState extends State<QuantityAndPrice> {
           Quantity(counter: counter),
           IncreaseQuantityButton(),
           Spacer(),
-          Price(price: price, widget: widget)
+          Price(price: price, widget: widget, index: widget.index)
         ],
       ),
     );
