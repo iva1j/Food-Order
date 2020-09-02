@@ -17,7 +17,7 @@ class LoginRegisterButton extends StatelessWidget {
       height: SizeConfig.blockSizeVertical * 5,
       child: RaisedButton(
         onPressed: () {},
-        color: raisedButtonColor,
+        color: blue,
         child: Text(
           input,
           style: TextStyle(
