@@ -1,9 +1,7 @@
-import 'package:FoodOrder/utils/Providers/categoryChangeNotifier.dart';
 import 'package:FoodOrder/utils/sizeconfig.dart';
 import 'package:FoodOrder/view/mainScreen/widgets/appBarTitle.dart';
 import 'package:FoodOrder/view/mainScreen/widgets/FoodCategory/categoryCards.dart';
 import 'package:FoodOrder/view/mainScreen/widgets/FoodCard/foodCard.dart';
-import 'package:FoodOrder/view/mainScreen/widgets/dummy_data.dart';
 import 'package:FoodOrder/viewModel/HomeScreen/listOfFood.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -28,6 +26,10 @@ class _ListOfFoodsState extends State<ListOfFoods> {
         elevation: 0,
         backgroundColor: Colors.white,
         title: AppBarTitle(),
+        // actions: [       # TODO: remove comments and put link of Cart Screen in this IconButton
+        //   IconButton(
+        //       icon: Icon(Icons.shopping_cart, color: color2, size: 30,), onPressed: () {})
+        // ],
       ),
       body: Column(
         children: [CategoryCard(), FoodCard()],
