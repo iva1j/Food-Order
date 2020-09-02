@@ -41,6 +41,4 @@ class _FoodCardState extends State<FoodCard> {
           }),
     );
   }
-
-
 }

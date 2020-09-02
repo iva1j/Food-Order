@@ -1,6 +1,6 @@
 import 'package:FoodOrder/utils/sizeconfig.dart';
 import 'package:FoodOrder/view/mainScreen/widgets/appBarTitle.dart';
-import 'package:FoodOrder/view/mainScreen/widgets/categoryCards.dart';
+import 'package:FoodOrder/view/mainScreen/widgets/FoodCategory/categoryCards.dart';
 import 'package:FoodOrder/view/mainScreen/widgets/FoodCard/foodCard.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';

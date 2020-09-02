@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'foodDetailsAlertDialog.dart';
+import 'AlertDialog/foodDetailsAlertDialog.dart';
 
 Future buildShowDialog(BuildContext context, int index) {
   return showDialog(
