@@ -1,6 +1,9 @@
 // import 'package:FoodOrder/utils/colors.dart';
 // import 'package:FoodOrder/utils/sizeconfig.dart';
 // import 'package:flutter/material.dart';
+// import 'package:FoodOrder/utils/colors.dart';
+// import 'package:FoodOrder/utils/sizeconfig.dart';
+// import 'package:flutter/material.dart';
 
 // class LoginRegisterButton extends StatelessWidget {
 //   final String input;

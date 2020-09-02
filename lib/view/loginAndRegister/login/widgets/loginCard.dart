@@ -1,4 +1,4 @@
-import 'package:FoodOrder/utils/Providers/categoryChangeNotifier.dart';
+import 'package:FoodOrder/providers/categoryChangeNotifier.dart';
 import 'package:FoodOrder/utils/colors.dart';
 import 'package:FoodOrder/utils/sizeconfig.dart';
 import 'package:FoodOrder/utils/strings.dart';
@@ -7,6 +7,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
+var status = false;
 
 class LoginCard extends StatefulWidget {
   LoginCard({Key key}) : super(key: key);
@@ -33,6 +35,9 @@ class _LoginCardState extends State<LoginCard> {
     if (value.length == null || value == '') return 'Field cannot be empty';
     if (!regex.hasMatch(value)) {
       return 'Email format is invalid';
+    }
+    if (status != true) {
+      return 'Email ili Password nisu tačni';
     } else {
       return null;
     }
@@ -41,6 +46,9 @@ class _LoginCardState extends State<LoginCard> {
   String pwdValidator(String value) {
     if (value.length < 8) {
       return 'Password must be longer than 8 characters';
+    }
+    if (status != true) {
+      return 'Email ili Password nisu tačni';
     } else {
       return null;
     }
@@ -48,6 +56,23 @@ class _LoginCardState extends State<LoginCard> {
 
   @override
   Widget build(BuildContext context) {
+    Future<bool> isUserRegistered() async {
+      final QuerySnapshot result = await Firestore.instance
+          .collection('users')
+          .where('email', isEqualTo: emailInputController.text)
+          .where('password', isEqualTo: pwdInputController.text)
+          .limit(1)
+          .getDocuments();
+      final List<DocumentSnapshot> dokument = result.documents;
+      if (dokument.length > 0) {
+        status = true;
+        print("Trenutni status (print od SignIn-a):" + status.toString());
+      } else {
+        status = false;
+        print("Trenutni status(print od SignIn-a):" + status.toString());
+      }
+    }
+
     SizeConfig().init(context);
     return Container(
       padding: const EdgeInsets.all(20.0),
@@ -139,8 +164,11 @@ class _LoginCardState extends State<LoginCard> {
                               borderRadius: BorderRadius.circular(5.0),
                             ),
                             color: blue,
-                            onPressed: () {
-                              if (_loginFormKey.currentState.validate()) {
+                            onPressed: () async {
+                              await isUserRegistered();
+
+                              if (_loginFormKey.currentState.validate() &&
+                                  status == true) {
                                 FirebaseAuth.instance
                                     .signInWithEmailAndPassword(
                                         email: emailInputController.text,

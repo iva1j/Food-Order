@@ -5,6 +5,11 @@ import 'package:flutter/material.dart';
 
 const DUMMY_CATEGORIES = const [
   CategoryFood(
+    id: 'c0',
+    title: 'All',
+    color: Colors.purple,
+  ),
+  CategoryFood(
     id: 'c1',
     title: 'Italian',
     color: Colors.purple,
@@ -57,6 +62,7 @@ const DUMMY_CATEGORIES = const [
 ];
 
 var DUMMY_MEALS = [
+  
   Meal(
     id: 'm1',
     categories: [
@@ -96,7 +102,7 @@ var DUMMY_MEALS = [
   Meal(
     id: 'm2',
     categories: [
-      'c2',
+      'c2','c0'
     ],
     title: 'Toast Hawaii',
     affordability: Affordability.Affordable,
@@ -127,7 +133,7 @@ var DUMMY_MEALS = [
     id: 'm3',
     categories: [
       'c2',
-      'c3',
+      'c3','c0'
     ],
     title: 'Classic Hamburger',
     affordability: Affordability.Pricey,
@@ -160,7 +166,7 @@ var DUMMY_MEALS = [
   Meal(
     id: 'm4',
     categories: [
-      'c4',
+      'c4','c0'
     ],
     title: 'Wiener Schnitzel',
     affordability: Affordability.Luxurious,
@@ -198,7 +204,7 @@ var DUMMY_MEALS = [
     id: 'm5',
     categories: [
       'c2'
-          'c5',
+          'c5','c0'
       'c10',
     ],
     title: 'Salad with Smoked Salmon',
@@ -235,7 +241,7 @@ var DUMMY_MEALS = [
   Meal(
     id: 'm6',
     categories: [
-      'c6',
+      'c6','c0'
       'c10',
     ],
     title: 'Delicious Orange Mousse',
@@ -273,7 +279,7 @@ var DUMMY_MEALS = [
   Meal(
     id: 'm7',
     categories: [
-      'c7',
+      'c7','c0'
     ],
     title: 'Pancakes',
     affordability: Affordability.Affordable,
@@ -306,7 +312,7 @@ var DUMMY_MEALS = [
   Meal(
     id: 'm8',
     categories: [
-      'c8',
+      'c8','c0'
     ],
     title: 'Creamy Indian Chicken Curry',
     affordability: Affordability.Pricey,
@@ -341,7 +347,7 @@ var DUMMY_MEALS = [
   Meal(
     id: 'm9',
     categories: [
-      'c9',
+      'c9','c0'
     ],
     title: 'Chocolate Souffle',
     affordability: Affordability.Affordable,
@@ -392,7 +398,7 @@ var DUMMY_MEALS = [
   Meal(
     id: 'm10',
     categories: [
-      'c2',
+      'c2','c0'
       'c5',
       'c10',
     ],

@@ -1,4 +1,4 @@
-import 'package:FoodOrder/utils/Providers/categoryChangeNotifier.dart';
+import 'package:FoodOrder/providers/categoryChangeNotifier.dart';
 import 'package:FoodOrder/utils/sizeconfig.dart';
 import 'package:FoodOrder/view/mainScreen/pages/listOfFood.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -6,6 +6,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_auth_buttons/flutter_auth_buttons.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:provider/provider.dart';
+
+GoogleSignIn googleSignIn = new GoogleSignIn();
+
+signOut() {
+  googleSignIn.signOut();
+}
 
 class SignWithGoogleButton extends StatefulWidget {
   @override
@@ -16,7 +22,6 @@ class _SignWithGoogleButtonState extends State<SignWithGoogleButton> {
   FirebaseAuth auth = FirebaseAuth.instance;
   FirebaseUser user;
 
-  GoogleSignIn googleSignIn = new GoogleSignIn();
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
@@ -26,11 +31,13 @@ class _SignWithGoogleButtonState extends State<SignWithGoogleButton> {
       ),
       child: GoogleSignInButton(
         onPressed: () {
-          handleSignIn();
-          Navigator.of(context).pushReplacement(MaterialPageRoute(
-              builder: (context) => ChangeNotifierProvider<CategoryChangeIndex>(
-                  child: ListOfFoods(),
-                  create: (BuildContext context) => CategoryChangeIndex())));
+          handleSignIn().whenComplete(() => Navigator.of(context)
+              .pushReplacement(MaterialPageRoute(
+                  builder: (context) =>
+                      ChangeNotifierProvider<CategoryChangeIndex>(
+                          child: ListOfFoods(),
+                          create: (BuildContext context) =>
+                              CategoryChangeIndex()))));
         },
         darkMode: false,
       ),
