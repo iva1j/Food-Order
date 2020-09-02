@@ -24,9 +24,6 @@ class _LoginState extends State<Login> {
           children: [
             ImageCard(),
             LoginCard(),
-            // LoginRegisterButton(
-            //   input: LoginRegisterPageStrings().loginButton,
-            // ),
             HorizontalLine(),
             SignWithGoogleButton(),
             Row(

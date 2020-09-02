@@ -4,8 +4,6 @@ import 'package:FoodOrder/view/loginAndRegister/login/pages/login.dart';
 import 'package:FoodOrder/view/loginAndRegister/register/widgets/registerCard.dart';
 import 'package:FoodOrder/view/loginAndRegister/sharedWidgets/horizontalLine.dart';
 import 'package:FoodOrder/view/loginAndRegister/sharedWidgets/imageCard.dart';
-import 'package:FoodOrder/view/loginAndRegister/sharedWidgets/loginRegisterButton.dart';
-import 'package:FoodOrder/view/loginAndRegister/sharedWidgets/newUserOrNot.dart';
 import 'package:FoodOrder/view/loginAndRegister/sharedWidgets/signWithGoogleButton.dart';
 import 'package:flutter/material.dart';
 

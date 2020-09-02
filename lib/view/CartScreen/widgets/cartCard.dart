@@ -1,14 +1,20 @@
 import 'package:FoodOrder/utils/Providers/categoryChangeNotifier.dart';
 import 'package:FoodOrder/utils/sizeconfig.dart';
 import 'package:FoodOrder/view/mainScreen/widgets/FoodCard/QuantityAndPrice/decreaseQuantityButton.dart';
+import 'package:FoodOrder/view/mainScreen/widgets/FoodCard/QuantityAndPrice/increaseQuantityButton.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class CartCardContainer extends StatelessWidget {
+class CartCardContainer extends StatefulWidget {
   const CartCardContainer({
     Key key,
   }) : super(key: key);
 
+  @override
+  _CartCardContainerState createState() => _CartCardContainerState();
+}
+
+class _CartCardContainerState extends State<CartCardContainer> {
   @override
   Widget build(BuildContext context) {
     return Container(

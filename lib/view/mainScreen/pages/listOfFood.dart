@@ -1,5 +1,6 @@
 import 'package:FoodOrder/utils/Providers/categoryChangeNotifier.dart';
 import 'package:FoodOrder/utils/sizeconfig.dart';
+import 'package:FoodOrder/view/loginAndRegister/login/pages/login.dart';
 import 'package:FoodOrder/view/loginAndRegister/register/pages/register.dart';
 import 'package:FoodOrder/view/mainScreen/widgets/appBarTitle.dart';
 import 'package:FoodOrder/view/mainScreen/widgets/FoodCategory/categoryCards.dart';
@@ -47,7 +48,7 @@ class _ListOfFoodsState extends State<ListOfFoods> {
               FirebaseAuth.instance
                   .signOut()
                   .then((result) => Navigator.pushReplacement(context,
-                      MaterialPageRoute(builder: (context) => Register())))
+                      MaterialPageRoute(builder: (context) => Login())))
                   .catchError((err) => print(err));
             },
           )

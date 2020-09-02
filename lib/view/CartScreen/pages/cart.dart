@@ -1,9 +1,11 @@
+import 'package:FoodOrder/utils/Providers/categoryChangeNotifier.dart';
 import 'package:FoodOrder/utils/sizeconfig.dart';
 import 'package:FoodOrder/utils/strings.dart';
 import 'package:FoodOrder/view/CartScreen/widgets/cartButton.dart';
 import 'package:FoodOrder/view/CartScreen/widgets/cartCard.dart';
 import 'package:FoodOrder/view/CartScreen/widgets/cartPrice.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class CartPage extends StatefulWidget {
   @override
