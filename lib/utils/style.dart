@@ -2,7 +2,7 @@ import 'package:FoodOrder/utils/colors.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import 'Providers/categoryChangeNotifier.dart';
+import 'package:FoodOrder/providers/categoryChangeNotifier.dart';
 
 //# TODO: refactore whole style based on their parent files
 TextStyle productDetailsTitleStyle() {

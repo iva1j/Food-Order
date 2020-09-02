@@ -5,6 +5,11 @@ import 'package:flutter/material.dart';
 
 const DUMMY_CATEGORIES = const [
   CategoryFood(
+    id: 'c0',
+    title: 'All',
+    color: Colors.purple,
+  ),
+  CategoryFood(
     id: 'c1',
     title: 'Italian',
     color: Colors.purple,
@@ -79,9 +84,7 @@ var DUMMY_MEALS = [
   ),
   Meal(
     id: 'm2',
-    categories: [
-      'c2',
-    ],
+    categories: ['c2', 'c0'],
     title: 'Toast Hawaii',
     imageUrl:
         'https://cdn.pixabay.com/photo/2018/07/11/21/51/toast-3532016_1280.jpg',
@@ -116,9 +119,7 @@ var DUMMY_MEALS = [
   ),
   Meal(
     id: 'm4',
-    categories: [
-      'c4',
-    ],
+    categories: ['c4', 'c0'],
     title: 'Wiener Schnitzel',
     imageUrl:
         'https://cdn.pixabay.com/photo/2018/03/31/19/29/schnitzel-3279045_1280.jpg',
@@ -140,7 +141,8 @@ var DUMMY_MEALS = [
     categories: [
       'c2'
           'c5',
-      'c10',
+      'c0'
+          'c10',
     ],
     title: 'Salad with Smoked Salmon',
     imageUrl:
@@ -163,7 +165,8 @@ var DUMMY_MEALS = [
     id: 'm6',
     categories: [
       'c6',
-      'c10',
+      'c0'
+          'c10',
     ],
     title: 'Delicious Orange Mousse',
     imageUrl:
@@ -181,9 +184,7 @@ var DUMMY_MEALS = [
   ),
   Meal(
     id: 'm7',
-    categories: [
-      'c7',
-    ],
+    categories: ['c7', 'c0'],
     title: 'Pancakes',
     imageUrl:
         'https://cdn.pixabay.com/photo/2018/07/10/21/23/pancake-3529653_1280.jpg',
@@ -201,9 +202,7 @@ var DUMMY_MEALS = [
   ),
   Meal(
     id: 'm8',
-    categories: [
-      'c8',
-    ],
+    categories: ['c8', 'c0'],
     title: 'Creamy Indian Chicken Curry',
     imageUrl:
         'https://cdn.pixabay.com/photo/2018/06/18/16/05/indian-food-3482749_1280.jpg',
@@ -221,9 +220,7 @@ var DUMMY_MEALS = [
   ),
   Meal(
     id: 'm9',
-    categories: [
-      'c9',
-    ],
+    categories: ['c9', 'c0'],
     title: 'Chocolate Souffle',
     imageUrl:
         'https://cdn.pixabay.com/photo/2014/08/07/21/07/souffle-412785_1280.jpg',
@@ -239,7 +236,8 @@ var DUMMY_MEALS = [
     id: 'm10',
     categories: [
       'c2',
-      'c5',
+      'c0'
+          'c5',
       'c10',
     ],
     title: 'Asparagus Salad with Cherry Tomatoes',

@@ -23,7 +23,7 @@ class Meal {
   final bool isLactoseFree;
   final bool isVegan;
   final bool isVegetarian;
-  int counter;
+  int counter = 0;
 
   Meal(
       {@required this.categories,
