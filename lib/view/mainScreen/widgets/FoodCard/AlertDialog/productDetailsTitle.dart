@@ -21,7 +21,7 @@ class _ProductDetailsTitleState extends State<ProductDetailsTitle> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: Margin().only(0, 0, 0, 3),
+      margin: Margin().only(3, 0, 0, 3),
       child: Text(
         DUMMY_MEALS[widget.widget.index].title,
         style: productDetailsTitleStyle(),

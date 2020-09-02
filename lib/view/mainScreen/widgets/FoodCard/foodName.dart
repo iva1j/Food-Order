@@ -1,3 +1,4 @@
+import 'package:FoodOrder/utils/style.dart';
 import 'package:FoodOrder/view/mainScreen/widgets/dummy_data.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
@@ -16,11 +17,7 @@ class _FoodNameState extends State<FoodName> {
   Widget build(BuildContext context) {
     return Text(
       DUMMY_MEALS[widget.index].title,
-      style: TextStyle(
-          color: Colors.black54,
-          fontFamily: 'Roboto',
-          fontSize: 22,
-          fontWeight: FontWeight.w500),
+      style: foodNameStyle(),
     );
   }
 }

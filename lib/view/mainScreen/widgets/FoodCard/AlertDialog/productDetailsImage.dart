@@ -23,7 +23,7 @@ class _ProductDetailsImageState extends State<ProductDetailsImage> {
     return Container(
       child: ClipRRect(
         borderRadius: BorderRadius.only(
-            bottomLeft: Radius.circular(50), bottomRight: Radius.circular(50)),
+            bottomLeft: Radius.circular(40), bottomRight: Radius.circular(40)),
         child: Image.network(
           DUMMY_MEALS[widget.widget.index].imageUrl,
           height: SizeConfig.blockSizeVertical * 50,

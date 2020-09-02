@@ -15,8 +15,8 @@ TextStyle productDetailsTitleStyle() {
 
 TextStyle productDetailsContentStyle() {
   return TextStyle(
-    color: Colors.black45,
-    fontSize: 16,
+    color: Colors.black38,
+    fontSize: 14,
     fontFamily: 'Roboto',
   );
 }
@@ -95,3 +95,17 @@ TextStyle quantityStyle() {
 }
 
 TextStyle priceStyle() => TextStyle(color: Colors.black38, fontSize: 20);
+TextStyle appBarStyle() {
+  return TextStyle(
+    color: Colors.black45,
+    fontFamily: 'Roboto',
+  );
+}
+
+TextStyle foodNameStyle() {
+  return TextStyle(
+      color: Colors.black54,
+      fontFamily: 'Roboto',
+      fontSize: 22,
+      fontWeight: FontWeight.w500);
+}

@@ -1,4 +1,5 @@
 import 'package:FoodOrder/utils/margins.dart';
+import 'package:FoodOrder/utils/strings.dart';
 import 'package:FoodOrder/utils/style.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -11,9 +12,9 @@ class ProductDetailsContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: Margin().symmetric(3, 2),
+      margin: Margin().symmetric(3, 3),
       child: Text(
-        'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry. ',
+        Names().lorem,
         style: productDetailsContentStyle(),
       ),
     );

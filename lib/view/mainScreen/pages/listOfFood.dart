@@ -20,7 +20,7 @@ class _ListOfFoodsState extends State<ListOfFoods> {
         backgroundColor: Colors.white,
         title: AppBarTitle(),
       ),
-      body: Column(
+      body: Column( 
         children: [CategoryCard(), FoodCard()],
       ),
     );
