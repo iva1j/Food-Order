@@ -6,6 +6,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:provider/provider.dart';
 
 class Price extends StatefulWidget {
   const Price({
@@ -25,14 +26,17 @@ class Price extends StatefulWidget {
 class _PriceState extends State<Price> {
   @override
   Widget build(BuildContext context) {
+    final provider = Provider.of<CategoryChangeIndex>(context);
+
     return Text(
-      widget.price != 0
+      (categoryMeals[widget.index].newPrice == null)
           ? NumberFormat.currency(locale: 'eu', symbol: '€').format(
-              (double.parse('${categoryMeals[widget.index].price.toString().replaceAll(',', '.')}')),
+              (double.parse(
+                  '${categoryMeals[widget.index].price.toString().replaceAll(',', '.')}')),
             )
           : NumberFormat.currency(locale: 'eu', symbol: '€').format(
               (double.parse(
-                  '${categoryMeals[widget.index].price.toString().replaceAll(',', '.')}')),
+                  '${categoryMeals[widget.index].newPrice.toString().replaceAll(',', '.')}')),
             ),
       style: priceStyle(),
     );
