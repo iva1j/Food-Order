@@ -23,6 +23,7 @@ class CategoryCardBody extends StatefulWidget {
 class _CategoryCardBodyState extends State<CategoryCardBody> {
   @override
   Widget build(BuildContext context) {
+    int counter;
     return GestureDetector(
       onTap: () {
         widget.provider.currentIndex = widget.index;
