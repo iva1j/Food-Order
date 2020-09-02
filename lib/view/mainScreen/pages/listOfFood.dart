@@ -14,7 +14,7 @@ class ListOfFoods extends StatefulWidget {
 class _ListOfFoodsState extends State<ListOfFoods> {
   @override
   void initState() {
-    initMeals();
+    ListOfFoodViewModel().initMeals();
     super.initState();
   }
 
@@ -26,10 +26,6 @@ class _ListOfFoodsState extends State<ListOfFoods> {
         elevation: 0,
         backgroundColor: Colors.white,
         title: AppBarTitle(),
-        // actions: [       # TODO: remove comments and put link of Cart Screen in this IconButton
-        //   IconButton(
-        //       icon: Icon(Icons.shopping_cart, color: color2, size: 30,), onPressed: () {})
-        // ],
       ),
       body: Column(
         children: [CategoryCard(), FoodCard()],
