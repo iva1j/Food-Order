@@ -29,13 +29,7 @@ class _QuantityAndPriceState extends State<QuantityAndPrice> {
             child: FlatButton(
               padding: EdgeInsets.all(0),
               onPressed: () {
-                (counter > 1)
-                    ? setState(() {
-                        counter--;
-                        price = double.parse(DUMMY_MEALS[widget.index].price) *
-                            counter;
-                      })
-                    : counter = 1;
+                //# TODO: Implement function for decreasing quantity of the food and change the price acording to that amount
               },
               child: Text(
                 "-",
@@ -60,11 +54,7 @@ class _QuantityAndPriceState extends State<QuantityAndPrice> {
             child: FlatButton(
               padding: EdgeInsets.all(0),
               onPressed: () {
-                setState(() {
-                  counter++;
-                  price =
-                      double.parse(DUMMY_MEALS[widget.index].price) * counter;
-                });
+                //# TODO: Implement function for increasing quantity of the food and change the price acording to that amount
               },
               child: Text(
                 "+",
