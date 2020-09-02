@@ -1,3 +1,4 @@
+import 'package:FoodOrder/utils/Providers/categoryChangeNotifier.dart';
 import 'package:FoodOrder/utils/style.dart';
 import 'package:FoodOrder/view/mainScreen/widgets/dummy_data.dart';
 import 'package:flutter/cupertino.dart';
@@ -16,7 +17,7 @@ class _FoodNameState extends State<FoodName> {
   @override
   Widget build(BuildContext context) {
     return Text(
-      DUMMY_MEALS[widget.index].title,
+      categoryMeals[widget.index].title,
       style: foodNameStyle(),
     );
   }

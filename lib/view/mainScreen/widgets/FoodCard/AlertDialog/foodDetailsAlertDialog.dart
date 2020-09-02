@@ -21,14 +21,17 @@ class _FoodDetailsAlertDialogState extends State<FoodDetailsAlertDialog> {
     return AlertDialog(
       scrollable: true,
       title: Container(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            ProductDetailsImage(widget: widget),
-            ProductDetailsTitle(widget: widget),
-            ProductDetailsContent(),
-          ],
-        ),
+        child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+          ProductDetailsImage(
+            widget: widget,
+            index: widget.index,
+          ),
+          ProductDetailsTitle(
+            widget: widget,
+            index: widget.index,
+          ),
+          ProductDetailsContent(index: widget.index)
+        ]),
       ),
       titlePadding: Margin().all(0),
       elevation: 0,

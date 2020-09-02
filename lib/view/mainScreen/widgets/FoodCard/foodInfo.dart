@@ -26,8 +26,8 @@ class _FoodInfoState extends State<FoodInfo> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             FoodName(index: widget.index),
-            FoodDesc(widget: widget, widget2: widget),
-            QuantityAndPrice(index: widget.index)
+            FoodDesc(widget: widget, widget2: widget), 
+            QuantityAndPrice(index: widget.index) 
           ],
         ),
       ),
