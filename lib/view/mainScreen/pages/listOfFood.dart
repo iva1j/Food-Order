@@ -1,9 +1,7 @@
-import 'package:FoodOrder/utils/Providers/categoryChangeNotifier.dart';
 import 'package:FoodOrder/utils/sizeconfig.dart';
 import 'package:FoodOrder/view/mainScreen/widgets/appBarTitle.dart';
 import 'package:FoodOrder/view/mainScreen/widgets/FoodCategory/categoryCards.dart';
 import 'package:FoodOrder/view/mainScreen/widgets/FoodCard/foodCard.dart';
-import 'package:FoodOrder/view/mainScreen/widgets/dummy_data.dart';
 import 'package:FoodOrder/viewModel/HomeScreen/listOfFood.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -16,7 +14,7 @@ class ListOfFoods extends StatefulWidget {
 class _ListOfFoodsState extends State<ListOfFoods> {
   @override
   void initState() {
-    initMeals();
+    ListOfFoodViewModel().initMeals();
     super.initState();
   }
 
