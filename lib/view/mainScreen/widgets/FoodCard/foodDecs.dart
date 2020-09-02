@@ -1,7 +1,7 @@
+import 'package:FoodOrder/utils/Providers/categoryChangeNotifier.dart';
 import 'package:FoodOrder/utils/strings.dart';
 import 'package:FoodOrder/utils/style.dart';
 import 'package:FoodOrder/view/mainScreen/widgets/FoodCard/foodInfo.dart';
-import 'package:FoodOrder/view/mainScreen/widgets/dummy_data.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -19,9 +19,9 @@ class FoodDesc extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Text(
-      DUMMY_MEALS[widget.index].ingredients.toString().contains('[')
+      categoryMeals[widget.index].ingredients.toString().contains('[')
           ? FoodElements().ingridients +
-              DUMMY_MEALS[widget.index]
+              categoryMeals[widget.index]
                   .ingredients
                   .toString()
                   .replaceAll('[', '')

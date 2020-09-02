@@ -1,3 +1,4 @@
+import 'package:FoodOrder/utils/Providers/categoryChangeNotifier.dart';
 import 'package:FoodOrder/utils/style.dart';
 import 'package:FoodOrder/view/mainScreen/widgets/FoodCard/quantityAndPrice.dart';
 import 'package:FoodOrder/view/mainScreen/widgets/dummy_data.dart';
@@ -11,11 +12,12 @@ class Price extends StatefulWidget {
     Key key,
     @required this.price,
     @required this.widget,
+    this.index,
   }) : super(key: key);
 
   final double price;
   final QuantityAndPrice widget;
-
+  final int index;
   @override
   _PriceState createState() => _PriceState();
 }
@@ -26,11 +28,11 @@ class _PriceState extends State<Price> {
     return Text(
       widget.price != 0
           ? NumberFormat.currency(locale: 'eu', symbol: '€').format(
-              (double.parse('${widget.price.toString().replaceAll(',', '.')}')),
+              (double.parse('${categoryMeals[widget.index].price.toString().replaceAll(',', '.')}')),
             )
           : NumberFormat.currency(locale: 'eu', symbol: '€').format(
               (double.parse(
-                  '${DUMMY_MEALS[widget.widget.index].price.toString().replaceAll(',', '.')}')),
+                  '${categoryMeals[widget.index].price.toString().replaceAll(',', '.')}')),
             ),
       style: priceStyle(),
     );
