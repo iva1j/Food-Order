@@ -1,23 +1,16 @@
-import 'package:FoodOrder/utils/globalVariables.dart';
 import 'package:FoodOrder/utils/sizeconfig.dart';
 import 'package:FoodOrder/utils/strings.dart';
-import 'package:FoodOrder/view/loginAndRegister/login/pages/home.dart';
-import 'package:FoodOrder/view/loginAndRegister/sharedWidgets/horizontalLine.dart';
-import 'package:FoodOrder/view/loginAndRegister/sharedWidgets/imageCard.dart';
-import 'package:FoodOrder/view/loginAndRegister/sharedWidgets/signWithGoogleButton.dart';
-import 'package:FoodOrder/viewModel/register/registerViewModel.dart';
 import 'package:flutter/material.dart';
-import '../../../../utils/colors.dart';
-import '../../login/pages/login.dart';
-import '../../sharedWidgets/loginRegisterButton.dart';
 
-class RegisterCard extends StatelessWidget {
-  const RegisterCard({
-    Key key,
-  }) : super(key: key);
+class RegisterCard extends StatefulWidget {
+  @override
+  _RegisterCardState createState() => _RegisterCardState();
+}
 
+class _RegisterCardState extends State<RegisterCard> {
   @override
   Widget build(BuildContext context) {
+    SizeConfig().init(context);
     return Container(
       margin: EdgeInsets.only(
         top: SizeConfig.blockSizeVertical * 4,
@@ -55,81 +48,103 @@ class RegisterCard extends StatelessWidget {
             SizedBox(
               height: SizeConfig.blockSizeVertical * 2,
             ),
-            Form(
-              key: formkey,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Container(
-                    margin: EdgeInsets.symmetric(
-                      horizontal: SizeConfig.blockSizeHorizontal * 3,
-                      vertical: 0,
-                    ),
-                    child: Text(
-                      LoginRegisterPageStrings().email,
-                      style: TextStyle(
-                        fontSize: SizeConfig.safeBlockHorizontal * 3,
+            Container(
+              margin: EdgeInsets.symmetric(
+                horizontal: SizeConfig.blockSizeHorizontal * 3,
+                vertical: 0,
+              ),
+              child: Text(
+                LoginRegisterPageStrings().email,
+                style: TextStyle(
+                  fontSize: SizeConfig.safeBlockHorizontal * 3,
+                  color: Colors.grey,
+                ),
+              ),
+            ),
+            Container(
+              margin: EdgeInsets.symmetric(
+                horizontal: SizeConfig.blockSizeHorizontal * 3,
+                vertical: 0,
+              ),
+              child: TextField(
+                decoration: InputDecoration(
+                  enabledBorder: new UnderlineInputBorder(
+                    borderSide: BorderSide(
                         color: Colors.grey,
-                      ),
-                    ),
+                        width: 1.0,
+                        style: BorderStyle.solid),
                   ),
-                  Container(
-                    margin: EdgeInsets.symmetric(
-                      horizontal: SizeConfig.blockSizeHorizontal * 3,
-                      vertical: 0,
-                    ),
-                    child: TextFormField(
-                      decoration: InputDecoration(
-                        enabledBorder: new UnderlineInputBorder(
-                          borderSide: BorderSide(
-                              color: Colors.grey,
-                              width: 1.0,
-                              style: BorderStyle.solid),
-                        ),
-                      ),
-                      onChanged: (val) {
-                        email = val;
-                      },
-                    ),
-                  ),
-                  SizedBox(
-                    height: SizeConfig.blockSizeVertical * 2,
-                  ),
-                  Container(
-                    margin: EdgeInsets.symmetric(
-                      horizontal: SizeConfig.blockSizeHorizontal * 3,
-                      vertical: 0,
-                    ),
-                    child: Text(
-                      LoginRegisterPageStrings().password,
-                      style: TextStyle(
-                        fontSize: SizeConfig.safeBlockHorizontal * 3,
-                        color: Colors.grey,
-                      ),
-                    ),
-                  ),
-                  Container(
-                    margin: EdgeInsets.symmetric(
-                      horizontal: SizeConfig.blockSizeHorizontal * 3,
-                      vertical: 0,
-                    ),
-                    child: TextFormField(
-                      obscureText: true,
-                      decoration: InputDecoration(
-                        enabledBorder: new UnderlineInputBorder(
-                          borderSide: BorderSide(
-                              color: Colors.grey,
-                              width: 1.0,
-                              style: BorderStyle.solid),
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
+                ),
               ),
             ),
             SizedBox(
-              height: SizeConfig.blockSizeVertical * 10,
+              height: SizeConfig.blockSizeVertical * 2,
+            ),
+            Container(
+              margin: EdgeInsets.symmetric(
+                horizontal: SizeConfig.blockSizeHorizontal * 3,
+                vertical: 0,
+              ),
+              child: Text(
+                LoginRegisterPageStrings().password,
+                style: TextStyle(
+                  fontSize: SizeConfig.safeBlockHorizontal * 3,
+                  color: Colors.grey,
+                ),
+              ),
+            ),
+            Container(
+              margin: EdgeInsets.symmetric(
+                horizontal: SizeConfig.blockSizeHorizontal * 3,
+                vertical: 0,
+              ),
+              child: TextFormField(
+                obscureText: true,
+                decoration: InputDecoration(
+                  enabledBorder: new UnderlineInputBorder(
+                    borderSide: BorderSide(
+                        color: Colors.grey,
+                        width: 1.0,
+                        style: BorderStyle.solid),
+                  ),
+                ),
+              ),
+            ),
+            SizedBox(
+              height: SizeConfig.blockSizeVertical * 2,
+            ),
+            Container(
+              margin: EdgeInsets.symmetric(
+                horizontal: SizeConfig.blockSizeHorizontal * 3,
+                vertical: 0,
+              ),
+              child: Text(
+                LoginRegisterPageStrings().confirmPassword,
+                style: TextStyle(
+                  fontSize: SizeConfig.safeBlockHorizontal * 3,
+                  color: Colors.grey,
+                ),
+              ),
+            ),
+            Container(
+              margin: EdgeInsets.symmetric(
+                horizontal: SizeConfig.blockSizeHorizontal * 3,
+                vertical: 0,
+              ),
+              child: TextFormField(
+                obscureText: true,
+                decoration: InputDecoration(
+                  enabledBorder: new UnderlineInputBorder(
+                    borderSide: BorderSide(
+                        color: Colors.grey,
+                        width: 1.0,
+                        style: BorderStyle.solid),
+                  ),
+                ),
+              ),
+            ),
+            SizedBox(
+              height: SizeConfig.blockSizeVertical * 2,
             ),
           ],
         ),

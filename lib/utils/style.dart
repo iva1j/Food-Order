@@ -7,7 +7,7 @@ import 'Providers/categoryChangeNotifier.dart';
 //# TODO: refactore whole style based on their parent files
 TextStyle productDetailsTitleStyle() {
   return TextStyle(
-    color: color2,
+    color: orange,
     fontFamily: 'Roboto',
     fontSize: 22,
   );

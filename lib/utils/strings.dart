@@ -25,3 +25,7 @@ class Names {
 class FoodElements {
   String ingridients = 'Ingredients: ';
 }
+
+class ShoppingCart {
+  String title = "Shopping Cart";
+}
