@@ -33,7 +33,6 @@ class _RegisterState extends State<Register> {
               input1: LoginRegisterPageStrings().haveAnAccount,
               input2: LoginRegisterPageStrings().login,
             ),
-            ThickHorizontalLine(),
           ],
         ),
       ),
