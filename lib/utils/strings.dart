@@ -15,6 +15,8 @@ class LoginRegisterPageStrings {
 }
 class Names {
   String appBarName = "Order Food";
+  String increase = '+';
+  String decrease = '-';
 }
 
 class FoodElements {

@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 import 'Providers/categoryChangeNotifier.dart';
 
+//# TODO: refactore whole style based on their parent files
 TextStyle productDetailsTitleStyle() {
   return TextStyle(
     color: color2,
@@ -54,3 +55,43 @@ BoxDecoration categoryCardDecoration() {
         bottomLeft: Radius.circular(30), bottomRight: Radius.circular(30)),
   );
 }
+
+BoxDecoration foodInfoDecoration() {
+  return BoxDecoration(
+    color: Color.fromRGBO(240, 244, 248, 1),
+    borderRadius: BorderRadius.only(
+        bottomLeft: Radius.circular(10), bottomRight: Radius.circular(10)),
+  );
+}
+
+TextStyle foodInfoStyle() {
+  return TextStyle(
+    color: Colors.black45,
+    fontFamily: 'Roboto',
+  );
+}
+
+TextStyle decreaseQuantityButtonStyle() {
+  return TextStyle(
+    fontWeight: FontWeight.w900,
+    fontSize: 22,
+    color: Colors.black38,
+  );
+}
+
+TextStyle increaseQuantityButtonStyle() {
+  return TextStyle(
+    fontWeight: FontWeight.w900,
+    fontSize: 22,
+    color: Colors.black38,
+  );
+}
+
+TextStyle quantityStyle() {
+  return TextStyle(
+    fontSize: 20,
+    color: Colors.black38,
+  );
+}
+
+TextStyle priceStyle() => TextStyle(color: Colors.black38, fontSize: 20);
