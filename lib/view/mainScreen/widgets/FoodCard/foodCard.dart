@@ -22,7 +22,6 @@ class _FoodCardState extends State<FoodCard> {
   @override
   Widget build(BuildContext context) {
     final provider = Provider.of<CategoryChangeIndex>(context);
-
     SizeConfig().init(context);
     return Expanded(
       child: ListView.builder(

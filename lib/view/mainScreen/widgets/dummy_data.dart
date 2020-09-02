@@ -1,6 +1,6 @@
+import 'package:FoodOrder/models/category.dart';
+import 'package:FoodOrder/models/meal.dart';
 
-import 'package:FoodOrder/view/models/category.dart';
-import 'package:FoodOrder/view/models/meal.dart';
 import 'package:flutter/material.dart';
 
 const DUMMY_CATEGORIES = const [
@@ -56,7 +56,7 @@ const DUMMY_CATEGORIES = const [
   ),
 ];
 
-const DUMMY_MEALS = const [
+var DUMMY_MEALS = [
   Meal(
     id: 'm1',
     categories: [
@@ -91,6 +91,7 @@ const DUMMY_MEALS = const [
     isVegan: true,
     isVegetarian: true,
     isLactoseFree: true,
+    counter: 0,
   ),
   Meal(
     id: 'm2',
@@ -120,6 +121,7 @@ const DUMMY_MEALS = const [
     isVegetarian: false,
     isLactoseFree: false,
     price: '4.3',
+    counter: 0,
   ),
   Meal(
     id: 'm3',
@@ -128,7 +130,6 @@ const DUMMY_MEALS = const [
       'c3',
     ],
     title: 'Classic Hamburger',
-    price: '5,5',
     affordability: Affordability.Pricey,
     complexity: Complexity.Simple,
     imageUrl:
@@ -153,6 +154,8 @@ const DUMMY_MEALS = const [
     isVegan: false,
     isVegetarian: false,
     isLactoseFree: true,
+    price: '5.5',
+    counter: 0,
   ),
   Meal(
     id: 'm4',
@@ -189,6 +192,7 @@ const DUMMY_MEALS = const [
     isVegetarian: false,
     isLactoseFree: false,
     price: '6.2',
+    counter: 0,
   ),
   Meal(
     id: 'm5',
@@ -226,6 +230,7 @@ const DUMMY_MEALS = const [
     isVegetarian: true,
     isLactoseFree: true,
     price: '3.9',
+    counter: 0,
   ),
   Meal(
     id: 'm6',
@@ -263,6 +268,7 @@ const DUMMY_MEALS = const [
     isVegetarian: true,
     isLactoseFree: false,
     price: '2.6',
+    counter: 0,
   ),
   Meal(
     id: 'm7',
@@ -295,6 +301,7 @@ const DUMMY_MEALS = const [
     isVegetarian: true,
     isLactoseFree: false,
     price: '4.5',
+    counter: 0,
   ),
   Meal(
     id: 'm8',
@@ -329,6 +336,7 @@ const DUMMY_MEALS = const [
     isVegetarian: false,
     isLactoseFree: true,
     price: '1.2',
+    counter: 0,
   ),
   Meal(
     id: 'm9',
@@ -379,6 +387,7 @@ const DUMMY_MEALS = const [
     isVegetarian: true,
     isLactoseFree: false,
     price: '2.3',
+    counter: 0,
   ),
   Meal(
     id: 'm10',
@@ -414,5 +423,6 @@ const DUMMY_MEALS = const [
     isVegetarian: true,
     isLactoseFree: true,
     price: '9.2',
+    counter: 0,
   ),
 ];
