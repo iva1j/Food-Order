@@ -1,4 +1,4 @@
-import 'package:FoodOrder/utils/Providers/categoryChangeNotifier.dart';
+import 'package:FoodOrder/providers/categoryChangeNotifier.dart';
 import 'package:FoodOrder/utils/margins.dart';
 import 'package:FoodOrder/view/mainScreen/widgets/FoodCard/QuantityAndPrice/decreaseQuantityButton.dart';
 import 'package:FoodOrder/view/mainScreen/widgets/FoodCard/QuantityAndPrice/increaseQuantityButton.dart';

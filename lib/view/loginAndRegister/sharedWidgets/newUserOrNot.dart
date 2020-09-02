@@ -1,5 +1,4 @@
 import 'package:FoodOrder/utils/sizeconfig.dart';
-import 'package:FoodOrder/utils/strings.dart';
 import 'package:flutter/material.dart';
 
 class CheckIfNewUser extends StatelessWidget {
