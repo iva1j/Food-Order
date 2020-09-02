@@ -1,3 +1,4 @@
+import 'package:FoodOrder/utils/Providers/categoryChangeNotifier.dart';
 import 'package:FoodOrder/utils/sizeconfig.dart';
 import 'package:FoodOrder/utils/strings.dart';
 import 'package:FoodOrder/view/loginAndRegister/login/pages/home.dart';
@@ -7,8 +8,10 @@ import 'package:FoodOrder/view/loginAndRegister/sharedWidgets/imageCard.dart';
 import 'package:FoodOrder/view/loginAndRegister/sharedWidgets/loginRegisterButton.dart';
 import 'package:FoodOrder/view/loginAndRegister/sharedWidgets/newUserOrNot.dart';
 import 'package:FoodOrder/view/loginAndRegister/sharedWidgets/signWithGoogleButton.dart';
+import 'package:FoodOrder/view/mainScreen/pages/listOfFood.dart';
 import 'package:FoodOrder/viewModel/signIn/signInViewModel.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import '../../../../utils/colors.dart';
 
 class Login extends StatefulWidget {
@@ -29,7 +32,11 @@ class _LoginState extends State<Login> {
           Navigator.pushReplacement(
               context,
               MaterialPageRoute(
-                builder: (context) => Home(),
+                builder: (context) =>
+                    ChangeNotifierProvider<CategoryChangeIndex>(
+                        child: ListOfFoods(),
+                        create: (BuildContext context) =>
+                            CategoryChangeIndex()),
               ));
         }
       });

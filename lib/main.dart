@@ -1,7 +1,10 @@
 import 'package:FoodOrder/view/loginAndRegister/login/pages/home.dart';
 import 'package:FoodOrder/view/loginAndRegister/login/pages/login.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:FoodOrder/utils/Providers/categoryChangeNotifier.dart';
+import 'package:FoodOrder/view/mainScreen/pages/listOfFood.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import 'view/loginAndRegister/login/pages/login.dart';
 import 'view/loginAndRegister/register/pages/register.dart';

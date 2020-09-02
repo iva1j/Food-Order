@@ -1,3 +1,4 @@
+import 'package:FoodOrder/utils/Providers/categoryChangeNotifier.dart';
 import 'package:FoodOrder/utils/sizeconfig.dart';
 import 'package:FoodOrder/utils/strings.dart';
 import 'package:FoodOrder/view/loginAndRegister/login/pages/home.dart';
@@ -7,9 +8,11 @@ import 'package:FoodOrder/view/loginAndRegister/sharedWidgets/imageCard.dart';
 import 'package:FoodOrder/view/loginAndRegister/sharedWidgets/loginRegisterButton.dart';
 import 'package:FoodOrder/view/loginAndRegister/sharedWidgets/newUserOrNot.dart';
 import 'package:FoodOrder/view/loginAndRegister/sharedWidgets/signWithGoogleButton.dart';
+import 'package:FoodOrder/view/mainScreen/pages/listOfFood.dart';
 import 'package:FoodOrder/viewModel/register/registerViewModel.dart';
 import 'package:FoodOrder/viewModel/signIn/signInGoogleViewModel.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../../../../utils/colors.dart';
 import '../../login/pages/login.dart';
@@ -26,12 +29,16 @@ class _RegisterState extends State<Register> {
   void handleSignup() {
     if (formkey.currentState.validate()) {
       formkey.currentState.save();
-      signUp(email.trim(), password, context).then((value) {
+      signUp(email, password, context).then((value) {
         if (value != null) {
           Navigator.pushReplacement(
               context,
               MaterialPageRoute(
-                builder: (context) => Home(),
+                builder: (context) =>
+                    ChangeNotifierProvider<CategoryChangeIndex>(
+                        child: ListOfFoods(),
+                        create: (BuildContext context) =>
+                            CategoryChangeIndex()),
               ));
         }
       });

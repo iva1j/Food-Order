@@ -23,7 +23,7 @@
 //   void handleSignup() {
 //     if (formkey.currentState.validate()) {
 //       formkey.currentState.save();
-//       signUp(email.trim(), password, context).then((value) {
+//       signUp(email, password, context).then((value) {
 //         if (value != null) {
 //           Navigator.pushReplacement(
 //               context,

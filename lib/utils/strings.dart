@@ -13,3 +13,15 @@ class LoginRegisterPageStrings {
   final String confirmPassword = "Confirm password";
   final String haveAnAccount = "Have an account?";
 }
+
+class Names {
+  String appBarName = "Order Food";
+  String increase = '+';
+  String decrease = '-';
+  String lorem =
+      'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry. ';
+}
+
+class FoodElements {
+  String ingridients = 'Ingredients: ';
+}
