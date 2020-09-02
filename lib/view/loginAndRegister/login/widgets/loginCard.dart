@@ -1,116 +1,283 @@
+import 'package:FoodOrder/utils/colors.dart';
 import 'package:FoodOrder/utils/sizeconfig.dart';
 import 'package:FoodOrder/utils/strings.dart';
+import 'package:FoodOrder/view/loginAndRegister/login/pages/home.dart';
+import 'package:FoodOrder/view/loginAndRegister/register/pages/register.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
-class LoginCard extends StatelessWidget {
+class LoginCard extends StatefulWidget {
+  LoginCard({Key key}) : super(key: key);
+  @override
+  _LoginCardState createState() => _LoginCardState();
+}
+
+class _LoginCardState extends State<LoginCard> {
+  final GlobalKey<FormState> _loginFormKey = GlobalKey<FormState>();
+  TextEditingController emailInputController;
+  TextEditingController pwdInputController;
+
+  @override
+  initState() {
+    emailInputController = new TextEditingController();
+    pwdInputController = new TextEditingController();
+    super.initState();
+  }
+
+  String emailValidator(String value) {
+    Pattern pattern =
+        r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$';
+    RegExp regex = new RegExp(pattern);
+    if (!regex.hasMatch(value)) {
+      return 'Email format is invalid';
+    } else {
+      return null;
+    }
+  }
+
+  String pwdValidator(String value) {
+    if (value.length < 8) {
+      return 'Password must be longer than 8 characters';
+    } else {
+      return null;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
     return Container(
-      margin: EdgeInsets.only(
-        top: SizeConfig.blockSizeVertical * 4,
-      ),
-      width: SizeConfig.blockSizeHorizontal * 90,
-      decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(10.0),
-          boxShadow: [
-            BoxShadow(
-                color: Colors.black12,
-                offset: Offset(0.0, 15.0),
-                blurRadius: 15.0),
-            BoxShadow(
-                color: Colors.black12,
-                offset: Offset(0.0, -10.0),
-                blurRadius: 10.0),
-          ]),
-      child: Padding(
-        padding: EdgeInsets.only(
-          left: SizeConfig.blockSizeHorizontal * 5,
-          right: SizeConfig.blockSizeHorizontal * 5,
-          top: SizeConfig.blockSizeVertical * 3,
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            Text(
-              LoginRegisterPageStrings().login,
-              style: TextStyle(
-                fontSize: SizeConfig.safeBlockHorizontal * 6,
-                fontWeight: FontWeight.bold,
-              ),
+      padding: const EdgeInsets.all(20.0),
+      child: SingleChildScrollView(
+        child: Form(
+          key: _loginFormKey,
+          child: Padding(
+            padding: EdgeInsets.only(
+              left: SizeConfig.blockSizeHorizontal * 5,
+              right: SizeConfig.blockSizeHorizontal * 5,
+              top: SizeConfig.blockSizeVertical * 3,
             ),
-            SizedBox(
-              height: SizeConfig.blockSizeVertical * 3,
-            ),
-            Container(
-              margin: EdgeInsets.symmetric(
-                horizontal: SizeConfig.blockSizeHorizontal * 3,
-                vertical: 0,
-              ),
-              child: Text(
-                LoginRegisterPageStrings().email,
-                style: TextStyle(
-                  fontSize: SizeConfig.safeBlockHorizontal * 3,
-                  color: Colors.grey,
-                ),
-              ),
-            ),
-            Container(
-              margin: EdgeInsets.symmetric(
-                horizontal: SizeConfig.blockSizeHorizontal * 3,
-                vertical: 0,
-              ),
-              child: TextField(
-                decoration: InputDecoration(
-                  enabledBorder: new UnderlineInputBorder(
-                    borderSide: BorderSide(
-                        color: Colors.grey,
-                        width: 1.0,
-                        style: BorderStyle.solid),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Text(
+                  LoginRegisterPageStrings().login,
+                  style: TextStyle(
+                    fontSize: SizeConfig.safeBlockHorizontal * 6,
+                    fontWeight: FontWeight.bold,
                   ),
                 ),
-              ),
-            ),
-            SizedBox(
-              height: SizeConfig.blockSizeVertical * 3,
-            ),
-            Container(
-              margin: EdgeInsets.symmetric(
-                horizontal: SizeConfig.blockSizeHorizontal * 3,
-                vertical: 0,
-              ),
-              child: Text(
-                LoginRegisterPageStrings().password,
-                style: TextStyle(
-                  fontSize: SizeConfig.safeBlockHorizontal * 3,
-                  color: Colors.grey,
+                SizedBox(
+                  height: SizeConfig.blockSizeVertical * 3,
                 ),
-              ),
-            ),
-            Container(
-              margin: EdgeInsets.symmetric(
-                horizontal: SizeConfig.blockSizeHorizontal * 3,
-                vertical: 0,
-              ),
-              child: TextFormField(
-                obscureText: true,
-                decoration: InputDecoration(
-                  enabledBorder: new UnderlineInputBorder(
-                    borderSide: BorderSide(
-                        color: Colors.grey,
-                        width: 1.0,
-                        style: BorderStyle.solid),
+                Container(
+                  margin: EdgeInsets.symmetric(
+                    horizontal: SizeConfig.blockSizeHorizontal * 3,
+                    vertical: 0,
+                  ),
+                  child: Text(
+                    LoginRegisterPageStrings().email,
+                    style: TextStyle(
+                      fontSize: SizeConfig.safeBlockHorizontal * 3,
+                      color: Colors.grey,
+                    ),
                   ),
                 ),
-              ),
+                Container(
+                  margin: EdgeInsets.symmetric(
+                    horizontal: SizeConfig.blockSizeHorizontal * 3,
+                    vertical: 0,
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      TextFormField(
+                        controller: emailInputController,
+                        keyboardType: TextInputType.emailAddress,
+                        validator: emailValidator,
+                      ),
+                      SizedBox(
+                        height: SizeConfig.blockSizeVertical * 3,
+                      ),
+                      Container(
+                        margin: EdgeInsets.symmetric(
+                          horizontal: SizeConfig.blockSizeHorizontal * 3,
+                          vertical: 0,
+                        ),
+                        child: Text(
+                          LoginRegisterPageStrings().password,
+                          style: TextStyle(
+                            fontSize: SizeConfig.safeBlockHorizontal * 3,
+                            color: Colors.grey,
+                          ),
+                        ),
+                      ),
+                      TextFormField(
+                        controller: pwdInputController,
+                        obscureText: true,
+                        validator: pwdValidator,
+                      ),
+                      Center(
+                        child: Container(
+                          margin: EdgeInsets.only(
+                            top: SizeConfig.blockSizeVertical * 3,
+                          ),
+                          width: SizeConfig.blockSizeHorizontal * 35,
+                          height: SizeConfig.blockSizeVertical * 5,
+                          child: RaisedButton(
+                            child: Text(
+                              LoginRegisterPageStrings().loginButton,
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.w700,
+                              ),
+                            ),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(5.0),
+                            ),
+                            color: blue,
+                            onPressed: () {
+                              if (_loginFormKey.currentState.validate()) {
+                                FirebaseAuth.instance
+                                    .signInWithEmailAndPassword(
+                                        email: emailInputController.text,
+                                        password: pwdInputController.text)
+                                    .then((authresult) => Firestore.instance
+                                        .collection("users")
+                                        .document(authresult.user.uid)
+                                        .get()
+                                        .then((DocumentSnapshot result) =>
+                                            Navigator.pushReplacement(
+                                                context,
+                                                MaterialPageRoute(
+                                                    builder: (context) =>
+                                                        HomePage(
+                                                          uid: authresult
+                                                              .user.uid,
+                                                        ))))
+                                        .catchError((err) => print(err)))
+                                    .catchError((err) => print(err));
+                              }
+                            },
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                )
+              ],
             ),
-            SizedBox(
-              height: SizeConfig.blockSizeVertical * 10,
-            ),
-          ],
+          ),
         ),
       ),
     );
   }
 }
+
+//Container(
+//   margin: EdgeInsets.only(
+//     top: SizeConfig.blockSizeVertical * 4,
+//   ),
+//   width: SizeConfig.blockSizeHorizontal * 90,
+//   decoration: BoxDecoration(
+//       color: Colors.white,
+//       borderRadius: BorderRadius.circular(10.0),
+//       boxShadow: [
+//         BoxShadow(
+//             color: Colors.black12,
+//             offset: Offset(0.0, 15.0),
+//             blurRadius: 15.0),
+//         BoxShadow(
+//             color: Colors.black12,
+//             offset: Offset(0.0, -10.0),
+//             blurRadius: 10.0),
+//       ]),
+//   child: Padding(
+//     padding: EdgeInsets.only(
+//       left: SizeConfig.blockSizeHorizontal * 5,
+//       right: SizeConfig.blockSizeHorizontal * 5,
+//       top: SizeConfig.blockSizeVertical * 3,
+//     ),
+//     child: Column(
+//       crossAxisAlignment: CrossAxisAlignment.start,
+//       children: <Widget>[
+//         Text(
+//           LoginRegisterPageStrings().login,
+//           style: TextStyle(
+//             fontSize: SizeConfig.safeBlockHorizontal * 6,
+//             fontWeight: FontWeight.bold,
+//           ),
+//         ),
+//         SizedBox(
+//           height: SizeConfig.blockSizeVertical * 3,
+//         ),
+//         Container(
+//           margin: EdgeInsets.symmetric(
+//             horizontal: SizeConfig.blockSizeHorizontal * 3,
+//             vertical: 0,
+//           ),
+//           child: Text(
+//             LoginRegisterPageStrings().email,
+//             style: TextStyle(
+//               fontSize: SizeConfig.safeBlockHorizontal * 3,
+//               color: Colors.grey,
+//             ),
+//           ),
+//         ),
+//         Container(
+//           margin: EdgeInsets.symmetric(
+//             horizontal: SizeConfig.blockSizeHorizontal * 3,
+//             vertical: 0,
+//           ),
+//           child: TextField(
+//             decoration: InputDecoration(
+//               enabledBorder: new UnderlineInputBorder(
+//                 borderSide: BorderSide(
+//                     color: Colors.grey,
+//                     width: 1.0,
+//                     style: BorderStyle.solid),
+//               ),
+//             ),
+//           ),
+//         ),
+//         SizedBox(
+//           height: SizeConfig.blockSizeVertical * 3,
+//         ),
+//         Container(
+//           margin: EdgeInsets.symmetric(
+//             horizontal: SizeConfig.blockSizeHorizontal * 3,
+//             vertical: 0,
+//           ),
+//           child: Text(
+//             LoginRegisterPageStrings().password,
+//             style: TextStyle(
+//               fontSize: SizeConfig.safeBlockHorizontal * 3,
+//               color: Colors.grey,
+//             ),
+//           ),
+//         ),
+//         Container(
+//           margin: EdgeInsets.symmetric(
+//             horizontal: SizeConfig.blockSizeHorizontal * 3,
+//             vertical: 0,
+//           ),
+//           child: TextFormField(
+//             obscureText: true,
+//             decoration: InputDecoration(
+//               enabledBorder: new UnderlineInputBorder(
+//                 borderSide: BorderSide(
+//                     color: Colors.grey,
+//                     width: 1.0,
+//                     style: BorderStyle.solid),
+//               ),
+//             ),
+//           ),
+//         ),
+//         SizedBox(
+//           height: SizeConfig.blockSizeVertical * 10,
+//         ),
+//       ],
+//     ),
+//   ),
+// );
