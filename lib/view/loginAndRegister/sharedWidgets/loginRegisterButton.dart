@@ -14,7 +14,7 @@ class LoginRegisterButton extends StatelessWidget {
       margin: EdgeInsets.only(
         top: SizeConfig.blockSizeVertical * 3,
       ),
-      width: SizeConfig.blockSizeHorizontal * 25,
+      width: SizeConfig.blockSizeHorizontal * 35,
       height: SizeConfig.blockSizeVertical * 5,
       child: RaisedButton(
         onPressed: () {},
