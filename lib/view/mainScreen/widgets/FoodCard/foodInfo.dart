@@ -1,6 +1,6 @@
 import 'package:FoodOrder/utils/margins.dart';
 import 'package:FoodOrder/utils/strings.dart';
-import 'package:FoodOrder/view/mainScreen/pages/dummy_data.dart';
+import 'package:FoodOrder/view/mainScreen/widgets/dummy_data.dart';
 import 'package:FoodOrder/view/mainScreen/widgets/FoodCard/foodName.dart';
 import 'package:FoodOrder/view/mainScreen/widgets/FoodCard/quantityAndPrice.dart';
 import 'package:flutter/cupertino.dart';

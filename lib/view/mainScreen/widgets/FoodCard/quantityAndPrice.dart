@@ -1,5 +1,5 @@
 import 'package:FoodOrder/utils/margins.dart';
-import 'package:FoodOrder/view/mainScreen/pages/dummy_data.dart';
+import 'package:FoodOrder/view/mainScreen/widgets/dummy_data.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -13,10 +13,9 @@ class QuantityAndPrice extends StatefulWidget {
   _QuantityAndPriceState createState() => _QuantityAndPriceState();
 }
 
-int counter = 0;
-double price = 0;
-
 class _QuantityAndPriceState extends State<QuantityAndPrice> {
+  int counter = 0;
+  double price = 0;
   @override
   Widget build(BuildContext context) {
     return Container(

@@ -1,4 +1,4 @@
-import 'package:FoodOrder/view/mainScreen/pages/dummy_data.dart';
+import 'package:FoodOrder/view/mainScreen/widgets/dummy_data.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
