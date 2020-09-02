@@ -2,6 +2,8 @@ import 'package:FoodOrder/utils/sizeconfig.dart';
 import 'package:FoodOrder/utils/strings.dart';
 import 'package:flutter/material.dart';
 
+import '../register/pages/register.dart';
+
 class CheckIfNewUser extends StatelessWidget {
   final String input1, input2;
 
@@ -30,7 +32,10 @@ class CheckIfNewUser extends StatelessWidget {
               left: SizeConfig.blockSizeHorizontal,
             ),
             child: InkWell(
-              onTap: () {},
+              onTap: () {
+                Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (context) => Register()));
+              },
               child: Text(
                 input2,
                 style: TextStyle(
