@@ -12,7 +12,7 @@ class CartButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return IconButton(
         icon: Icon(
-          Icons.shopping_cart,
+          Icons.add_shopping_cart,
           color: orange,
           size: 30,
         ),
