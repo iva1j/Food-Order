@@ -35,8 +35,8 @@ class _FoodCardState extends State<FoodCard> {
                   },
                   child: Column(
                     children: [
-                      Image.network(categoryMeals[index].imageUrl),
-                      FoodInfo(index: index),
+                      Image.network(categoryMeals[index].imageUrl,fit: BoxFit.fill,height: 300),
+                      FoodInfo(index: index), 
                     ],
                   ),
                 ));

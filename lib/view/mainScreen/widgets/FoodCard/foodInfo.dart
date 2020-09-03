@@ -28,7 +28,7 @@ class _FoodInfoState extends State<FoodInfo> {
         margin: Margin().symmetric(1, 3),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
+          children: [ 
             FoodName(index: widget.index),
             FoodDesc(widget: widget, widget2: widget),
             QuantityAndPrice(index: widget.index)

@@ -1,3 +1,4 @@
+import 'package:FoodOrder/utils/internetConnectivity.dart';
 import 'package:FoodOrder/utils/sizeconfig.dart';
 import 'package:FoodOrder/view/loginAndRegister/login/pages/login.dart';
 import 'package:FoodOrder/view/loginAndRegister/register/pages/register.dart';
@@ -5,6 +6,7 @@ import 'package:FoodOrder/view/loginAndRegister/sharedWidgets/signWithGoogleButt
 import 'package:FoodOrder/view/mainScreen/widgets/appBarTitle.dart';
 import 'package:FoodOrder/view/mainScreen/widgets/FoodCategory/categoryCards.dart';
 import 'package:FoodOrder/view/mainScreen/widgets/FoodCard/foodCard.dart';
+import 'package:FoodOrder/view/mainScreen/widgets/cartButton.dart';
 import 'package:FoodOrder/viewModel/HomeScreen/listOfFood.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
@@ -15,6 +17,8 @@ class ListOfFoods extends StatefulWidget {
   ListOfFoods({Key key, this.uid}) : super(key: key);
 
   final String uid;
+  //ListOfFoods(BuildContext context);
+
   @override
   _ListOfFoodsState createState() => _ListOfFoodsState();
 }
@@ -24,6 +28,7 @@ class _ListOfFoodsState extends State<ListOfFoods> {
   @override
   void initState() {
     ListOfFoodViewModel().initMeals();
+    InternetConnectivity().checkForConnectivity();
     this.getCurrentUser();
     super.initState();
   }
@@ -52,7 +57,8 @@ class _ListOfFoodsState extends State<ListOfFoods> {
                       MaterialPageRoute(builder: (context) => Login())))
                   .catchError((err) => print(err));
             },
-          )
+          ),
+          CartButton(),
         ],
       ),
       body: Column(

@@ -18,6 +18,10 @@ class FoodDesc extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    ///This code will be normally factorized but since we will
+    //////provide just 1 line of code (when real data API come), I left this code like this to minimaze doing unuseless job
+    ///new output will be like this: 
+    ///return Text(categoryMeals[widget.index].foodDesc, style: foodInfoStyle());
     return Text(
       categoryMeals[widget.index].ingredients.toString().contains('[')
           ? FoodElements().ingridients +

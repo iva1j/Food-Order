@@ -28,7 +28,7 @@ class _QuantityAndPriceState extends State<QuantityAndPrice> {
       margin: Margin().only(2, 0, 2, 0),
       child: Row(
         children: [
-          DecreaseQuantityButton(index: widget.index),
+          DecreaseQuantityButton(index: widget.index), 
           Quantity(counter: counter, index: widget.index),
           IncreaseQuantityButton(index: widget.index),
           Spacer(),

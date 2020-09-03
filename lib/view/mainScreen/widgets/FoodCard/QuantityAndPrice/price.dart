@@ -1,10 +1,9 @@
-import 'package:FoodOrder/providers/categoryChangeNotifier.dart';
 import 'package:FoodOrder/utils/style.dart';
 import 'package:FoodOrder/view/mainScreen/widgets/FoodCard/quantityAndPrice.dart';
+import 'package:FoodOrder/viewModel/HomeScreen/listOfFood.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 
 class Price extends StatefulWidget {
   const Price({
@@ -25,15 +24,7 @@ class _PriceState extends State<Price> {
   @override
   Widget build(BuildContext context) {
     return Text(
-      (categoryMeals[widget.index].newPrice == null)
-          ? NumberFormat.currency(locale: 'eu', symbol: '€').format(
-              (double.parse(
-                  '${categoryMeals[widget.index].price.toString().replaceAll(',', '.')}')),
-            )
-          : NumberFormat.currency(locale: 'eu', symbol: '€').format(
-              (double.parse(
-                  '${categoryMeals[widget.index].newPrice.toString().replaceAll(',', '.')}')),
-            ),
+      ListOfFoodViewModel().priceFormatterViewModel(widget.index),
       style: priceStyle(),
     );
   }

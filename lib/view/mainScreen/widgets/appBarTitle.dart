@@ -9,11 +9,11 @@ class AppBarTitle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
+    return Align(
+      alignment: Alignment.center,
       child: Text(
         Names().appBarName,
         style: appBarStyle(),
-        textAlign: TextAlign.center,
       ),
     );
   }
