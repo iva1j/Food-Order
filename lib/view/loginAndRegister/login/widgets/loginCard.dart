@@ -1,15 +1,12 @@
-import 'package:FoodOrder/providers/categoryChangeNotifier.dart';
-import 'package:FoodOrder/utils/colors.dart';
+import 'package:FoodOrder/utils/globalVariables.dart';
 import 'package:FoodOrder/utils/sizeconfig.dart';
-import 'package:FoodOrder/utils/strings.dart';
-import 'package:FoodOrder/view/mainScreen/pages/listOfFood.dart';
-import 'package:FoodOrder/viewModel/SignIn/signInViewModel.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:FoodOrder/view/loginAndRegister/login/widgets/TextFormFIelds/emailLoginField.dart';
+import 'package:FoodOrder/view/loginAndRegister/login/widgets/TextFormFIelds/passwLoginField.dart';
+import 'package:FoodOrder/view/loginAndRegister/login/widgets/Texts/emailLoginText.dart';
+import 'package:FoodOrder/view/loginAndRegister/login/widgets/Texts/loginTitle.dart';
+import 'package:FoodOrder/view/loginAndRegister/login/widgets/Texts/passwLoginText.dart';
+import 'package:FoodOrder/view/loginAndRegister/login/widgets/buttonLogin.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-
-var status = false;
 
 class LoginCard extends StatefulWidget {
   LoginCard({Key key}) : super(key: key);
@@ -18,41 +15,10 @@ class LoginCard extends StatefulWidget {
 }
 
 class _LoginCardState extends State<LoginCard> {
-  final GlobalKey<FormState> loginFormKey = GlobalKey<FormState>();
-  TextEditingController emailInputController;
-  TextEditingController pwdInputController;
-
   @override
   initState() {
-    emailInputController = new TextEditingController();
-    pwdInputController = new TextEditingController();
+    loginInit();
     super.initState();
-  }
-
-  String emailValidator(String value) {
-    Pattern pattern =
-        r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$';
-    RegExp regex = new RegExp(pattern);
-    if (value.length == null || value == '') return 'Field cannot be empty';
-    if (!regex.hasMatch(value)) {
-      return 'Email format is invalid';
-    }
-    if (status != true) {
-      return 'Email ili Password nisu tačni';
-    } else {
-      return null;
-    }
-  }
-
-  String pwdValidator(String value) {
-    if (value.length < 8) {
-      return 'Password must be longer than 8 characters';
-    }
-    if (status != true) {
-      return 'Email ili Password nisu tačni';
-    } else {
-      return null;
-    }
   }
 
   @override
@@ -72,29 +38,11 @@ class _LoginCardState extends State<LoginCard> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                Text(
-                  LoginRegisterPageStrings().login,
-                  style: TextStyle(
-                    fontSize: SizeConfig.safeBlockHorizontal * 6,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
+                TextLoginTitle(),
                 SizedBox(
                   height: SizeConfig.blockSizeVertical * 3,
                 ),
-                Container(
-                  margin: EdgeInsets.symmetric(
-                    horizontal: SizeConfig.blockSizeHorizontal * 3,
-                    vertical: 0,
-                  ),
-                  child: Text(
-                    LoginRegisterPageStrings().email,
-                    style: TextStyle(
-                      fontSize: SizeConfig.safeBlockHorizontal * 3,
-                      color: Colors.grey,
-                    ),
-                  ),
-                ),
+                TextLoginEmail(),
                 Container(
                   margin: EdgeInsets.symmetric(
                     horizontal: SizeConfig.blockSizeHorizontal * 3,
@@ -103,88 +51,13 @@ class _LoginCardState extends State<LoginCard> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
-                      TextFormField(
-                        controller: emailInputController,
-                        keyboardType: TextInputType.emailAddress,
-                        validator: emailValidator,
-                      ),
+                      EmailLoginField(),
                       SizedBox(
                         height: SizeConfig.blockSizeVertical * 3,
                       ),
-                      Container(
-                        margin: EdgeInsets.symmetric(
-                          horizontal: SizeConfig.blockSizeHorizontal * 3,
-                          vertical: 0,
-                        ),
-                        child: Text(
-                          LoginRegisterPageStrings().password,
-                          style: TextStyle(
-                            fontSize: SizeConfig.safeBlockHorizontal * 3,
-                            color: Colors.grey,
-                          ),
-                        ),
-                      ),
-                      TextFormField(
-                        controller: pwdInputController,
-                        obscureText: true,
-                        validator: pwdValidator,
-                      ),
-                      Center(
-                        child: Container(
-                          margin: EdgeInsets.only(
-                            top: SizeConfig.blockSizeVertical * 3,
-                          ),
-                          width: SizeConfig.blockSizeHorizontal * 35,
-                          height: SizeConfig.blockSizeVertical * 5,
-                          child: RaisedButton(
-                            child: Text(
-                              LoginRegisterPageStrings().loginButton,
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontWeight: FontWeight.w700,
-                              ),
-                            ),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(5.0),
-                            ),
-                            color: blue,
-                            onPressed: () async {
-                              await isUserRegistered();
-
-                              if (loginFormKey.currentState.validate() &&
-                                  status == true) {
-                                FirebaseAuth.instance
-                                    .signInWithEmailAndPassword(
-                                        email: emailInputController.text,
-                                        password: pwdInputController.text)
-                                    .then((authResult) => Firestore.instance
-                                        .collection("users")
-                                        .document(authResult.user.uid)
-                                        .get()
-                                        .then(
-                                          (DocumentSnapshot result) =>
-                                              Navigator.pushReplacement(
-                                            context,
-                                            MaterialPageRoute(
-                                              builder: (context) =>
-                                                  ChangeNotifierProvider<
-                                                      CategoryChangeIndex>(
-                                                child: ListOfFoods(
-                                                    uid: authResult.user.uid),
-                                                create:
-                                                    (BuildContext context) =>
-                                                        CategoryChangeIndex(),
-                                              ),
-                                            ),
-                                          ),
-                                        )
-                                        .catchError((err) => print(err)))
-                                    .catchError((err) => print(err));
-                              }
-                            },
-                          ),
-                        ),
-                      ),
+                      TextLoginPassword(),
+                      PasswordLoginField(),
+                      ButtonLogin(),
                     ],
                   ),
                 )

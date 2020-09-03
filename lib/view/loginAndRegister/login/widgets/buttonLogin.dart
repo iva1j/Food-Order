@@ -1,11 +1,11 @@
 import 'package:FoodOrder/utils/colors.dart';
 import 'package:FoodOrder/utils/sizeconfig.dart';
 import 'package:FoodOrder/utils/strings.dart';
-import 'package:FoodOrder/viewModel/Register/registerViewModel.dart';
+import 'package:FoodOrder/viewModel/SignIn/signInViewModel.dart';
 import 'package:flutter/material.dart';
 
-class RegisterButton extends StatelessWidget {
-  const RegisterButton({
+class ButtonLogin extends StatelessWidget {
+  const ButtonLogin({
     Key key,
   }) : super(key: key);
 
@@ -20,7 +20,7 @@ class RegisterButton extends StatelessWidget {
         height: SizeConfig.blockSizeVertical * 5,
         child: RaisedButton(
           child: Text(
-            LoginRegisterPageStrings().registerButton,
+            LoginRegisterPageStrings().loginButton,
             style: TextStyle(
               color: Colors.white,
               fontWeight: FontWeight.w700,
@@ -31,7 +31,7 @@ class RegisterButton extends StatelessWidget {
           ),
           color: blue,
           onPressed: () async {
-            await onPressedRegButton(context);
+            await onPressedButtonLogin(context);
           },
         ),
       ),

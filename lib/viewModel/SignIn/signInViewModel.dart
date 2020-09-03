@@ -1,6 +1,10 @@
+import 'package:FoodOrder/providers/categoryChangeNotifier.dart';
 import 'package:FoodOrder/utils/globalVariables.dart';
-import 'package:FoodOrder/view/loginAndRegister/login/widgets/loginCard.dart';
+import 'package:FoodOrder/view/mainScreen/pages/listOfFood.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 Future<bool> isUserRegistered() async {
   final QuerySnapshot result = await Firestore.instance
@@ -16,5 +20,33 @@ Future<bool> isUserRegistered() async {
   } else {
     status = false;
     print("Trenutni status(print od SignIn-a):" + status.toString());
+  }
+}
+
+Future onPressedButtonLogin(BuildContext context) async {
+  await isUserRegistered();
+
+  if (loginFormKey.currentState.validate() && status == true) {
+    FirebaseAuth.instance
+        .signInWithEmailAndPassword(
+            email: emailInputController.text, password: pwdInputController.text)
+        .then((authResult) => Firestore.instance
+            .collection("users")
+            .document(authResult.user.uid)
+            .get()
+            .then(
+              (DocumentSnapshot result) => Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                  builder: (context) =>
+                      ChangeNotifierProvider<CategoryChangeIndex>(
+                    child: ListOfFoods(uid: authResult.user.uid),
+                    create: (BuildContext context) => CategoryChangeIndex(),
+                  ),
+                ),
+              ),
+            )
+            .catchError((err) => print(err)))
+        .catchError((err) => print(err));
   }
 }

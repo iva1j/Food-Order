@@ -1,6 +1,4 @@
 import 'package:FoodOrder/utils/sizeconfig.dart';
-import 'package:FoodOrder/utils/strings.dart';
-import 'package:FoodOrder/view/loginAndRegister/login/pages/login.dart';
 import 'package:FoodOrder/view/loginAndRegister/register/widgets/bottomLoginText.dart';
 import 'package:FoodOrder/view/loginAndRegister/register/widgets/registerCard.dart';
 import 'package:FoodOrder/view/loginAndRegister/sharedWidgets/horizontalLine.dart';

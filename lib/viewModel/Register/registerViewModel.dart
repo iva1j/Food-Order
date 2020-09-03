@@ -1,6 +1,5 @@
 import 'package:FoodOrder/providers/categoryChangeNotifier.dart';
 import 'package:FoodOrder/utils/globalVariables.dart';
-import 'package:FoodOrder/view/loginAndRegister/register/widgets/registerCard.dart';
 import 'package:FoodOrder/view/mainScreen/pages/listOfFood.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -115,5 +114,12 @@ Future onPressedRegButton(BuildContext context) async {
             );
           });
     }
+  }
+}
+
+void removeFocusRegister(BuildContext context) {
+  FocusScopeNode currentFocus = FocusScope.of(context);
+  if (!currentFocus.hasPrimaryFocus && currentFocus.focusedChild != null) {
+    currentFocus.focusedChild.unfocus();
   }
 }
