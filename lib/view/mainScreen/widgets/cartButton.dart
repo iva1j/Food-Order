@@ -1,4 +1,3 @@
-import 'package:FoodOrder/providers/categoryChangeNotifier.dart';
 import 'package:FoodOrder/utils/colors.dart';
 import 'package:FoodOrder/view/CartScreen/pages/cart.dart';
 import 'package:flutter/cupertino.dart';

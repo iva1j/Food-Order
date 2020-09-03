@@ -1,5 +1,4 @@
 import 'package:FoodOrder/providers/categoryChangeNotifier.dart';
-import 'package:FoodOrder/view/mainScreen/widgets/FoodCategory/categoryCardBody.dart';
 import 'package:FoodOrder/view/mainScreen/widgets/dummy_data.dart';
 import 'package:FoodOrder/utils/globalVariables.dart';
 import 'package:FoodOrder/utils/internetConnectivity.dart';

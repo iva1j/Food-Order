@@ -2,7 +2,6 @@ import 'package:FoodOrder/providers/categoryChangeNotifier.dart';
 import 'package:FoodOrder/utils/margins.dart';
 import 'package:FoodOrder/utils/style.dart';
 import 'package:FoodOrder/view/mainScreen/widgets/FoodCategory/productCategoryTitle.dart';
-import 'package:FoodOrder/viewModel/HomeScreen/listOfFood.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';

@@ -1,6 +1,4 @@
-import 'package:FoodOrder/Providers/categoryChangeNotifier.dart';
 import 'package:FoodOrder/services/homeScreen/listOfScreen.dart';
-import 'package:FoodOrder/providers/categoryChangeNotifier.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
