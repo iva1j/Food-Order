@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Material App',
       home: ChangeNotifierProvider<CategoryChangeIndex>(
-        child: ListOfFoods(),
+        child: ListOfFoods(context),
         create: (BuildContext context) => CategoryChangeIndex(),
       ),
     );

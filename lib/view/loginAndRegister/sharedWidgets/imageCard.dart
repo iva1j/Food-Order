@@ -20,7 +20,7 @@ class ImageCard extends StatelessWidget {
         ),
         height: SizeConfig.blockSizeVertical * 20,
         width: SizeConfig.blockSizeHorizontal * 75,
-        margin: EdgeInsets.only(top: SizeConfig.blockSizeVertical * 10),
+        margin: EdgeInsets.only(top: SizeConfig.blockSizeVertical * 9),
       ),
     );
   }
