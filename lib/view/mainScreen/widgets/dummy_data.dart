@@ -62,13 +62,9 @@ const DUMMY_CATEGORIES = const [
 ];
 
 var DUMMY_MEALS = [
-  
   Meal(
     id: 'm1',
-    categories: [
-      'c1',
-      'c2',
-    ],
+    categories: ['c1', 'c2', 'c0'],
     title: 'Spaghetti with Tomato Sauce',
     affordability: Affordability.Affordable,
     price: '3',
@@ -101,9 +97,7 @@ var DUMMY_MEALS = [
   ),
   Meal(
     id: 'm2',
-    categories: [
-      'c2','c0'
-    ],
+    categories: ['c2', 'c0'],
     title: 'Toast Hawaii',
     affordability: Affordability.Affordable,
     complexity: Complexity.Simple,
@@ -131,10 +125,7 @@ var DUMMY_MEALS = [
   ),
   Meal(
     id: 'm3',
-    categories: [
-      'c2',
-      'c3','c0'
-    ],
+    categories: ['c2', 'c3', 'c0'],
     title: 'Classic Hamburger',
     affordability: Affordability.Pricey,
     complexity: Complexity.Simple,
@@ -165,9 +156,7 @@ var DUMMY_MEALS = [
   ),
   Meal(
     id: 'm4',
-    categories: [
-      'c4','c0'
-    ],
+    categories: ['c4', 'c0'],
     title: 'Wiener Schnitzel',
     affordability: Affordability.Luxurious,
     complexity: Complexity.Challenging,
@@ -204,7 +193,8 @@ var DUMMY_MEALS = [
     id: 'm5',
     categories: [
       'c2'
-          'c5','c0'
+          'c5',
+      'c0',
       'c10',
     ],
     title: 'Salad with Smoked Salmon',
@@ -241,7 +231,8 @@ var DUMMY_MEALS = [
   Meal(
     id: 'm6',
     categories: [
-      'c6','c0'
+      'c6',
+      'c0',
       'c10',
     ],
     title: 'Delicious Orange Mousse',
@@ -278,9 +269,7 @@ var DUMMY_MEALS = [
   ),
   Meal(
     id: 'm7',
-    categories: [
-      'c7','c0'
-    ],
+    categories: ['c7', 'c0'],
     title: 'Pancakes',
     affordability: Affordability.Affordable,
     complexity: Complexity.Simple,
@@ -311,9 +300,7 @@ var DUMMY_MEALS = [
   ),
   Meal(
     id: 'm8',
-    categories: [
-      'c8','c0'
-    ],
+    categories: ['c8', 'c0'],
     title: 'Creamy Indian Chicken Curry',
     affordability: Affordability.Pricey,
     complexity: Complexity.Challenging,
@@ -346,9 +333,7 @@ var DUMMY_MEALS = [
   ),
   Meal(
     id: 'm9',
-    categories: [
-      'c9','c0'
-    ],
+    categories: ['c9', 'c0'],
     title: 'Chocolate Souffle',
     affordability: Affordability.Affordable,
     complexity: Complexity.Hard,
@@ -359,15 +344,15 @@ var DUMMY_MEALS = [
       '1 Teaspoon melted Butter',
       '2 Tablespoons white Sugar',
       '2 Ounces 70% dark Chocolate, broken into pieces',
-      // '1 Tablespoon Butter',
-      // '1 Tablespoon all-purpose Flour',
-      // '4 1/3 tablespoons cold Milk',
-      // '1 Pinch Salt',
-      // '1 Pinch Cayenne Pepper',
-      // '1 Large Egg Yolk',
-      // '2 Large Egg Whites',
-      // '1 Pinch Cream of Tartar',
-      // '1 Tablespoon white Sugar',
+      '1 Tablespoon Butter',
+      '1 Tablespoon all-purpose Flour',
+      '4 1/3 tablespoons cold Milk',
+      '1 Pinch Salt',
+      '1 Pinch Cayenne Pepper',
+      '1 Large Egg Yolk',
+      '2 Large Egg Whites',
+      '1 Pinch Cream of Tartar',
+      '1 Tablespoon white Sugar',
     ],
     steps: [
       'Preheat oven to 190°C. Line a rimmed baking sheet with parchment paper.',
@@ -398,7 +383,8 @@ var DUMMY_MEALS = [
   Meal(
     id: 'm10',
     categories: [
-      'c2','c0'
+      'c2',
+      'c0',
       'c5',
       'c10',
     ],
