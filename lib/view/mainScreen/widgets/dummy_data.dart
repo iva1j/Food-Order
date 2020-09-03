@@ -61,6 +61,7 @@ const DUMMY_CATEGORIES = const [
   ),
 ];
 
+// ignore: non_constant_identifier_names
 var DUMMY_MEALS = [
   Meal(
     id: 'm1',
@@ -101,10 +102,7 @@ var DUMMY_MEALS = [
   ),
   Meal(
     id: 'm3',
-    categories: [
-      'c3',
-      'c0',
-    ],
+    categories: ['c2', 'c3', 'c0'],
     title: 'Classic Hamburger',
     imageUrl:
         'https://cdn.pixabay.com/photo/2014/10/23/18/05/burger-500054_1280.jpg',
@@ -230,6 +228,15 @@ var DUMMY_MEALS = [
       '1 Teaspoon melted Butter',
       '2 Tablespoons white Sugar',
       '2 Ounces 70% dark Chocolate, broken into pieces',
+      '1 Tablespoon Butter',
+      '1 Tablespoon all-purpose Flour',
+      '4 1/3 tablespoons cold Milk',
+      '1 Pinch Salt',
+      '1 Pinch Cayenne Pepper',
+      '1 Large Egg Yolk',
+      '2 Large Egg Whites',
+      '1 Pinch Cream of Tartar',
+      '1 Tablespoon white Sugar',
     ],
     price: '2.3',
     counter: 0,

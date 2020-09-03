@@ -4,6 +4,7 @@ import 'package:FoodOrder/utils/globalVariables.dart';
 import 'package:FoodOrder/utils/internetConnectivity.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class ListOfFood {
   initMeals() {
@@ -30,4 +31,17 @@ class ListOfFood {
         : Scaffold.of(context).showSnackBar(
             SnackBar(content: Text('Check you internet connection!')));
   }
+
+  String priceFormatter(int index) {
+    return (categoryMeals[index].newPrice == null)
+        ? NumberFormat.currency(locale: 'eu', symbol: '€').format(
+            (double.parse(
+                '${categoryMeals[index].price.toString().replaceAll(',', '.')}')),
+          )
+        : NumberFormat.currency(locale: 'eu', symbol: '€').format(
+            (double.parse(
+                '${categoryMeals[index].newPrice.toString().replaceAll(',', '.')}')),
+          );
+  }
+
 }

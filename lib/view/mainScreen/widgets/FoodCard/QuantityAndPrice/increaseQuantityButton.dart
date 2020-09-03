@@ -1,6 +1,4 @@
 import 'package:FoodOrder/providers/categoryChangeNotifier.dart';
-import 'package:FoodOrder/utils/globalVariables.dart';
-import 'package:FoodOrder/utils/internetConnectivity.dart';
 import 'package:FoodOrder/utils/margins.dart';
 import 'package:FoodOrder/utils/strings.dart';
 import 'package:FoodOrder/utils/style.dart';
@@ -9,8 +7,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
-int counter = 0;
 
 class IncreaseQuantityButton extends StatefulWidget {
   const IncreaseQuantityButton({
