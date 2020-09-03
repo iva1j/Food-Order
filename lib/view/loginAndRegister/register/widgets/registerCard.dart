@@ -199,7 +199,9 @@ class _RegisterCardState extends State<RegisterCard> {
                                 borderRadius: BorderRadius.circular(5.0),
                               ),
                               color: blue,
-                              onPressed: () {
+                              onPressed: () async {
+                                await checkStatus(
+                                    context, emailInputController.text);
                                 if (registerFormKey.currentState.validate()) {
                                   if (pwdInputController.text ==
                                       confirmPwdInputController.text) {
@@ -255,7 +257,7 @@ class _RegisterCardState extends State<RegisterCard> {
                                               return AlertDialog(
                                                 title: Text("Error"),
                                                 content: Text(
-                                                    "The passwords do not match"),
+                                                    "Email already in use"),
                                                 actions: <Widget>[
                                                   FlatButton(
                                                     child: Text("Close"),
@@ -267,7 +269,6 @@ class _RegisterCardState extends State<RegisterCard> {
                                                 ],
                                               );
                                             });
-                                    ;
                                   } else {
                                     showDialog(
                                         context: context,
