@@ -19,7 +19,7 @@ class _ProductCategoryTitleState extends State<ProductCategoryTitle> {
   @override
   Widget build(BuildContext context) {
     return Text(
-      DUMMY_CATEGORIES[widget.index].title,
+      DUMMY_CATEGORIES[widget.index].title,textAlign: TextAlign.center,
       style: categoryFocusStyle(widget.index, widget.provider),
     );
   }
