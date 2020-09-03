@@ -1,7 +1,10 @@
 import 'package:FoodOrder/providers/categoryChangeNotifier.dart';
+import 'package:FoodOrder/utils/globalVariables.dart';
+import 'package:FoodOrder/utils/internetConnectivity.dart';
 import 'package:FoodOrder/utils/margins.dart';
 import 'package:FoodOrder/utils/strings.dart';
 import 'package:FoodOrder/utils/style.dart';
+import 'package:FoodOrder/viewModel/HomeScreen/listOfFood.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -22,7 +25,7 @@ class DecreaseQuantityButton extends StatelessWidget {
       child: FlatButton(
         padding: Margin().all(0),
         onPressed: () {
-          provider.decrementCounter = index;
+          ListOfFoodViewModel().decreaseAmount(provider, context, index);
         },
         child: Text(
           Names().decrease,

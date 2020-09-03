@@ -1,7 +1,10 @@
 import 'package:FoodOrder/providers/categoryChangeNotifier.dart';
+import 'package:FoodOrder/utils/globalVariables.dart';
+import 'package:FoodOrder/utils/internetConnectivity.dart';
 import 'package:FoodOrder/utils/margins.dart';
 import 'package:FoodOrder/utils/strings.dart';
 import 'package:FoodOrder/utils/style.dart';
+import 'package:FoodOrder/viewModel/HomeScreen/listOfFood.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -29,9 +32,7 @@ class _IncreaseQuantityButtonState extends State<IncreaseQuantityButton> {
       child: FlatButton(
         padding: Margin().all(0),
         onPressed: () {
-          //# TODO: Implement function for increasing quantity of the food and change the price acording to that amount
-          // provider.currentIndex = widget.index;
-          provider.incrementCounter = widget.index;
+          ListOfFoodViewModel().increaseAmount(provider, context, widget.index);
         },
         child: Text(
           Names().increase,

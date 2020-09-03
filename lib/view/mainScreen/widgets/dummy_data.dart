@@ -67,6 +67,7 @@ var DUMMY_MEALS = [
     categories: [
       'c1',
       'c2',
+      'c0',
     ],
     title: 'Spaghetti with Tomato Sauce',
     price: '3',
@@ -102,6 +103,7 @@ var DUMMY_MEALS = [
     id: 'm3',
     categories: [
       'c3',
+      'c0',
     ],
     title: 'Classic Hamburger',
     imageUrl:
@@ -139,10 +141,10 @@ var DUMMY_MEALS = [
   Meal(
     id: 'm5',
     categories: [
-      'c2'
-          'c5',
-      'c0'
-          'c10',
+      'c2',
+      'c5',
+      'c0',
+      'c10',
     ],
     title: 'Salad with Smoked Salmon',
     imageUrl:
@@ -165,8 +167,8 @@ var DUMMY_MEALS = [
     id: 'm6',
     categories: [
       'c6',
-      'c0'
-          'c10',
+      'c0',
+      'c10',
     ],
     title: 'Delicious Orange Mousse',
     imageUrl:
@@ -236,8 +238,8 @@ var DUMMY_MEALS = [
     id: 'm10',
     categories: [
       'c2',
-      'c0'
-          'c5',
+      'c0',
+      'c5',
       'c10',
     ],
     title: 'Asparagus Salad with Cherry Tomatoes',
@@ -257,6 +259,7 @@ var DUMMY_MEALS = [
     id: 'm11',
     categories: [
       'c10',
+      'c0',
     ],
     title: 'Caramel Cheese Cake',
     imageUrl:
@@ -271,6 +274,7 @@ var DUMMY_MEALS = [
     id: 'm12',
     categories: [
       'c10',
+      'c0',
     ],
     title: 'Lighten Up Chocolate Cake',
     imageUrl:
@@ -285,6 +289,7 @@ var DUMMY_MEALS = [
     id: 'm13',
     categories: [
       'c10',
+      'c0',
     ],
     title: 'New York Style Cheesecake',
     imageUrl:
@@ -299,6 +304,7 @@ var DUMMY_MEALS = [
     id: 'm14',
     categories: [
       'c10',
+      'c0',
     ],
     title: 'Chocolate Cheesecake',
     imageUrl:
@@ -313,6 +319,7 @@ var DUMMY_MEALS = [
     id: 'm15',
     categories: [
       'c10',
+      'c0',
     ],
     title: 'Malted Cookie Dough Cheesecake',
     imageUrl:
@@ -327,6 +334,7 @@ var DUMMY_MEALS = [
     id: 'm16',
     categories: [
       'c10',
+      'c0',
     ],
     title: 'Banana Bread Cheesecake Cups',
     imageUrl:
@@ -341,6 +349,7 @@ var DUMMY_MEALS = [
     id: 'm17',
     categories: [
       'c10',
+      'c0',
     ],
     title: 'Coconut Mango Cheesecake Bars',
     imageUrl:
@@ -355,6 +364,7 @@ var DUMMY_MEALS = [
     id: 'm18',
     categories: [
       'c10',
+      'c0',
     ],
     title: 'Caramel Coconut Cream Pie',
     imageUrl:
@@ -367,6 +377,7 @@ var DUMMY_MEALS = [
     id: 'm19',
     categories: [
       'c5',
+      'c0',
     ],
     title: 'Portuguese Salad',
     imageUrl:
@@ -381,6 +392,7 @@ var DUMMY_MEALS = [
     id: 'm20',
     categories: [
       'c5',
+      'c0',
     ],
     title: 'Mediterranean Salad',
     imageUrl:
@@ -395,6 +407,7 @@ var DUMMY_MEALS = [
     id: 'm21',
     categories: [
       'c5',
+      'c0',
     ],
     title: 'Caesar Salad',
     imageUrl:
@@ -409,6 +422,7 @@ var DUMMY_MEALS = [
     id: 'm22',
     categories: [
       'c3',
+      'c0',
     ],
     title: 'Chicken Wrap',
     imageUrl:
@@ -423,6 +437,7 @@ var DUMMY_MEALS = [
     id: 'm23',
     categories: [
       'c3',
+      'c0',
     ],
     title: 'Chicken Breast Burger',
     imageUrl:
@@ -437,6 +452,7 @@ var DUMMY_MEALS = [
     id: 'm24',
     categories: [
       'c3',
+      'c0',
     ],
     title: 'Chicken Caesar Wrap',
     imageUrl:
@@ -451,6 +467,7 @@ var DUMMY_MEALS = [
     id: 'm25',
     categories: [
       'c3',
+      'c0',
     ],
     title: 'Chicken Pita',
     imageUrl:
@@ -465,6 +482,7 @@ var DUMMY_MEALS = [
     id: 'm26',
     categories: [
       'c2',
+      'c0',
     ],
     title: '3 Chicken Wings',
     imageUrl:
@@ -477,6 +495,7 @@ var DUMMY_MEALS = [
     id: 'm27',
     categories: [
       'c2',
+      'c0',
     ],
     title: 'Chicken Livers and Portuguese Roll',
     imageUrl:
@@ -491,6 +510,7 @@ var DUMMY_MEALS = [
     id: 'm28',
     categories: [
       'c2',
+      'c0',
     ],
     title: 'Spicy Mixed Olives',
     imageUrl:
@@ -503,6 +523,7 @@ var DUMMY_MEALS = [
     id: 'm29',
     categories: [
       'c2',
+      'c0',
     ],
     title: 'Hummus with PERI-PERI Drizzle',
     imageUrl:
@@ -517,6 +538,7 @@ var DUMMY_MEALS = [
     id: 'm30',
     categories: [
       'c2',
+      'c0',
     ],
     title: 'Red Pepper Dip',
     imageUrl: 'https://pbs.twimg.com/media/BysuLFSIEAAiI-K.jpg',
@@ -530,6 +552,7 @@ var DUMMY_MEALS = [
     id: 'm31',
     categories: [
       'c4',
+      'c0',
     ],
     title: 'Spätzle – Traditional Swabian Egg Noodles',
     imageUrl:
@@ -544,6 +567,7 @@ var DUMMY_MEALS = [
     id: 'm32',
     categories: [
       'c4',
+      'c0',
     ],
     title: 'Bratwurst',
     imageUrl:
@@ -558,6 +582,7 @@ var DUMMY_MEALS = [
     id: 'm33',
     categories: [
       'c4',
+      'c0',
     ],
     title: 'Bratkartoffeln',
     imageUrl:
@@ -572,6 +597,7 @@ var DUMMY_MEALS = [
     id: 'm34',
     categories: [
       'c1',
+      'c0',
     ],
     title: 'Caprese Salad with Pesto Sauce',
     imageUrl:
@@ -586,6 +612,7 @@ var DUMMY_MEALS = [
     id: 'm35',
     categories: [
       'c1',
+      'c0',
     ],
     title: 'Panzenella',
     imageUrl:
@@ -600,6 +627,7 @@ var DUMMY_MEALS = [
     id: 'm36',
     categories: [
       'c1',
+      'c0',
     ],
     title: 'Bruschetta',
     imageUrl:
@@ -614,6 +642,7 @@ var DUMMY_MEALS = [
     id: 'm37',
     categories: [
       'c1',
+      'c0',
     ],
     title: 'Focaccia Bread',
     imageUrl:
@@ -628,6 +657,7 @@ var DUMMY_MEALS = [
     id: 'm38',
     categories: [
       'c1',
+      'c0',
     ],
     title: 'Mushroom Risotto',
     imageUrl: 'https://i.ndtvimg.com/i/2017-09/risotto_625x350_81506418041.jpg',
@@ -641,6 +671,7 @@ var DUMMY_MEALS = [
     id: 'm39',
     categories: [
       'c4',
+      'c0',
     ],
     title: 'Rouladen',
     imageUrl:
@@ -655,6 +686,7 @@ var DUMMY_MEALS = [
     id: 'm40',
     categories: [
       'c4',
+      'c0',
     ],
     title: 'Eintopf',
     imageUrl:
@@ -669,6 +701,7 @@ var DUMMY_MEALS = [
     id: 'm41',
     categories: [
       'c6',
+      'c0',
     ],
     title: ' Easy Lentil Dahl',
     imageUrl: 'https://img.allw.mn/content/t9/hj/hn0ooal0_600x750.jpg',
@@ -682,6 +715,7 @@ var DUMMY_MEALS = [
     id: 'm42',
     categories: [
       'c6',
+      'c0',
     ],
     title: ' Summer Rolls ',
     imageUrl: 'https://img.allw.mn/content/qa/j0/k1ag5k9d_600x805.jpg',
@@ -695,6 +729,7 @@ var DUMMY_MEALS = [
     id: 'm43',
     categories: [
       'c6',
+      'c0',
     ],
     title: 'Chawan Mushi',
     imageUrl: 'https://img.allw.mn/content/nc/dl/uuv6d7u6_600x900.jpg',
@@ -708,6 +743,7 @@ var DUMMY_MEALS = [
     id: 'm44',
     categories: [
       'c6',
+      'c0',
     ],
     title: 'Fish Teriyaki',
     imageUrl: 'https://img.allw.mn/content/c2/l1/ps888hek_448x560.jpg',
@@ -721,6 +757,7 @@ var DUMMY_MEALS = [
     id: 'm45',
     categories: [
       'c6',
+      'c0',
     ],
     title: 'Curried Pear Slaw',
     imageUrl: 'https://img.allw.mn/content/bn/r1/pu3v29zz_400x599.jpg',
@@ -734,6 +771,7 @@ var DUMMY_MEALS = [
     id: 'm46',
     categories: [
       'c7',
+      'c0',
     ],
     title: 'Blueberry French Toast',
     imageUrl:
@@ -748,6 +786,7 @@ var DUMMY_MEALS = [
     id: 'm47',
     categories: [
       'c7',
+      'c0',
     ],
     title: 'Amish Breakfast Casserole',
     imageUrl:
@@ -762,6 +801,7 @@ var DUMMY_MEALS = [
     id: 'm48',
     categories: [
       'c7',
+      'c0',
     ],
     title: 'Cream Cheese & Chive Omelet',
     imageUrl:
@@ -776,6 +816,7 @@ var DUMMY_MEALS = [
     id: 'm49',
     categories: [
       'c7',
+      'c0',
     ],
     title: 'True Belgian Waffles',
     imageUrl:
@@ -790,6 +831,7 @@ var DUMMY_MEALS = [
     id: 'm50',
     categories: [
       'c7',
+      'c0',
     ],
     title: 'Eggs Florentine Casserole',
     imageUrl:
@@ -804,6 +846,7 @@ var DUMMY_MEALS = [
     id: 'm51',
     categories: [
       'c8',
+      'c0',
     ],
     title: 'Pan-fried duck breast with pak choi & asparagus',
     imageUrl:
@@ -818,6 +861,7 @@ var DUMMY_MEALS = [
     id: 'm52',
     categories: [
       'c8',
+      'c0',
     ],
     title: 'Chicken & tofu noodle soup',
     imageUrl:
@@ -832,6 +876,7 @@ var DUMMY_MEALS = [
     id: 'm53',
     categories: [
       'c8',
+      'c0',
     ],
     title: 'South Asian chicken curry',
     imageUrl:
@@ -846,6 +891,7 @@ var DUMMY_MEALS = [
     id: 'm54',
     categories: [
       'c8',
+      'c0',
     ],
     title: 'Asian salmon & sweet potato traybake',
     imageUrl:
@@ -860,6 +906,7 @@ var DUMMY_MEALS = [
     id: 'm55',
     categories: [
       'c8',
+      'c0',
     ],
     title: 'Sticky sesame prawns',
     imageUrl:
@@ -874,6 +921,7 @@ var DUMMY_MEALS = [
     id: 'm56',
     categories: [
       'c9',
+      'c0',
     ],
     title: 'Chicken Basquaise',
     imageUrl:
@@ -888,6 +936,7 @@ var DUMMY_MEALS = [
     id: 'm57',
     categories: [
       'c9',
+      'c0',
     ],
     title: 'Barigoule of Spring Vegetables',
     imageUrl:
@@ -902,6 +951,7 @@ var DUMMY_MEALS = [
     id: 'm58',
     categories: [
       'c9',
+      'c0',
     ],
     title: 'Alsatian Bacon and Onion Tart',
     imageUrl:
@@ -916,6 +966,7 @@ var DUMMY_MEALS = [
     id: 'm59',
     categories: [
       'c9',
+      'c0',
     ],
     title: 'Basque-Style Fish with Green Peppers and Manila Clams',
     imageUrl:
@@ -930,6 +981,7 @@ var DUMMY_MEALS = [
     id: 'm60',
     categories: [
       'c9',
+      'c0',
     ],
     title: 'Steak Diane',
     imageUrl:
