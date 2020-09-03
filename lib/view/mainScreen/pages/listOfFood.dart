@@ -34,8 +34,8 @@ class _ListOfFoodsState extends State<ListOfFoods> {
         title: AppBarTitle(),
         actions: [CartButton()],
       ),
-      body: Column(
-        children: [CategoryCard(), FoodCard()],
+      body: Column( 
+        children: [CategoryCard(), FoodCard()], 
       ),
     );
   }

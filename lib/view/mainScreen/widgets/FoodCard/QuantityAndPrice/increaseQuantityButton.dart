@@ -8,8 +8,6 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-int counter = 0;
-
 class IncreaseQuantityButton extends StatefulWidget {
   const IncreaseQuantityButton({
     Key key,

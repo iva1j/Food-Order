@@ -22,7 +22,6 @@ class _QuantityState extends State<Quantity> {
   @override
   Widget build(BuildContext context) {
     final provider = Provider.of<CategoryChangeIndex>(context);
-
     return Text(
       categoryMeals[widget.index].counter.toString(),
       style: quantityStyle(),

@@ -14,4 +14,8 @@ class ListOfFoodViewModel {
   void increaseAmount(provider, BuildContext context, int index) {
     return ListOfFood().increaseAmount(provider, context, index);
   }
+
+  String priceFormatterViewModel(int index) {
+    return ListOfFood().priceFormatter(index);
+  }
 }
