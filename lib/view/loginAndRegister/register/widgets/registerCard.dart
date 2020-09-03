@@ -1,4 +1,6 @@
 import 'package:FoodOrder/providers/categoryChangeNotifier.dart';
+import 'package:FoodOrder/utils/Validation/Register/emailRegValidation.dart';
+import 'package:FoodOrder/utils/Validation/Register/passwordRegValidator.dart';
 import 'package:FoodOrder/utils/colors.dart';
 import 'package:FoodOrder/utils/sizeconfig.dart';
 import 'package:FoodOrder/utils/strings.dart';
@@ -27,26 +29,6 @@ class _RegisterCardState extends State<RegisterCard> {
     pwdInputController = new TextEditingController();
     confirmPwdInputController = new TextEditingController();
     super.initState();
-  }
-
-  String emailValidator(String value) {
-    Pattern pattern =
-        r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$';
-    RegExp regex = new RegExp(pattern);
-    if (value.length == null || value == '') return 'Field cannot be empty';
-    if (!regex.hasMatch(value)) {
-      return 'Email format is invalid';
-    } else {
-      return null;
-    }
-  }
-
-  String pwdValidator(String value) {
-    if (value.length < 8) {
-      return 'Password must be longer than 8 characters';
-    } else {
-      return null;
-    }
   }
 
   @override
@@ -88,218 +70,232 @@ class _RegisterCardState extends State<RegisterCard> {
     }
 
     SizeConfig().init(context);
-    return Container(
-        padding: const EdgeInsets.all(20.0),
-        child: SingleChildScrollView(
-          child: Form(
-            key: registerFormKey,
-            child: Padding(
-              padding: EdgeInsets.only(
-                left: SizeConfig.blockSizeHorizontal * 5,
-                right: SizeConfig.blockSizeHorizontal * 5,
-                top: SizeConfig.blockSizeVertical * 3,
-              ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Text(
-                    LoginRegisterPageStrings().register,
-                    style: TextStyle(
-                      fontSize: SizeConfig.safeBlockHorizontal * 6,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  SizedBox(
-                    height: SizeConfig.blockSizeVertical * 2,
-                  ),
-                  Container(
-                    margin: EdgeInsets.symmetric(
-                      horizontal: SizeConfig.blockSizeHorizontal * 3,
-                      vertical: 0,
-                    ),
-                    child: Text(
-                      LoginRegisterPageStrings().email,
+    return GestureDetector(
+      onTap: () {
+        FocusScopeNode currentFocus = FocusScope.of(context);
+        if (!currentFocus.hasPrimaryFocus &&
+            currentFocus.focusedChild != null) {
+          currentFocus.focusedChild.unfocus();
+        }
+      },
+      child: Container(
+          padding: const EdgeInsets.all(20.0),
+          child: SingleChildScrollView(
+            child: Form(
+              key: registerFormKey,
+              child: Padding(
+                padding: EdgeInsets.only(
+                  left: SizeConfig.blockSizeHorizontal * 5,
+                  right: SizeConfig.blockSizeHorizontal * 5,
+                  top: SizeConfig.blockSizeVertical * 3,
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Text(
+                      LoginRegisterPageStrings().register,
                       style: TextStyle(
-                        fontSize: SizeConfig.safeBlockHorizontal * 3,
-                        color: Colors.grey,
+                        fontSize: SizeConfig.safeBlockHorizontal * 6,
+                        fontWeight: FontWeight.bold,
                       ),
                     ),
-                  ),
-                  Container(
-                    margin: EdgeInsets.symmetric(
-                      horizontal: SizeConfig.blockSizeHorizontal * 3,
-                      vertical: 0,
+                    SizedBox(
+                      height: SizeConfig.blockSizeVertical * 2,
                     ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        TextFormField(
-                          controller: emailInputController,
-                          keyboardType: TextInputType.emailAddress,
-                          validator: emailValidator,
+                    Container(
+                      margin: EdgeInsets.symmetric(
+                        horizontal: SizeConfig.blockSizeHorizontal * 3,
+                        vertical: 0,
+                      ),
+                      child: Text(
+                        LoginRegisterPageStrings().email,
+                        style: TextStyle(
+                          fontSize: SizeConfig.safeBlockHorizontal * 3,
+                          color: Colors.grey,
                         ),
-                        SizedBox(
-                          height: SizeConfig.blockSizeVertical * 2,
-                        ),
-                        Container(
-                          margin: EdgeInsets.symmetric(
-                            horizontal: SizeConfig.blockSizeHorizontal * 3,
-                            vertical: 0,
+                      ),
+                    ),
+                    Container(
+                      margin: EdgeInsets.symmetric(
+                        horizontal: SizeConfig.blockSizeHorizontal * 3,
+                        vertical: 0,
+                      ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          TextFormField(
+                            controller: emailInputController,
+                            keyboardType: TextInputType.emailAddress,
+                            validator: emailValidator,
                           ),
-                          child: Text(
-                            LoginRegisterPageStrings().password,
-                            style: TextStyle(
-                              fontSize: SizeConfig.safeBlockHorizontal * 3,
-                              color: Colors.grey,
+                          SizedBox(
+                            height: SizeConfig.blockSizeVertical * 2,
+                          ),
+                          Container(
+                            margin: EdgeInsets.symmetric(
+                              horizontal: SizeConfig.blockSizeHorizontal * 3,
+                              vertical: 0,
+                            ),
+                            child: Text(
+                              LoginRegisterPageStrings().password,
+                              style: TextStyle(
+                                fontSize: SizeConfig.safeBlockHorizontal * 3,
+                                color: Colors.grey,
+                              ),
                             ),
                           ),
-                        ),
-                        TextFormField(
-                          controller: pwdInputController,
-                          obscureText: true,
-                          validator: pwdValidator,
-                        ),
-                        SizedBox(
-                          height: SizeConfig.blockSizeVertical * 2,
-                        ),
-                        Container(
-                          margin: EdgeInsets.symmetric(
-                            horizontal: SizeConfig.blockSizeHorizontal * 3,
-                            vertical: 0,
+                          TextFormField(
+                            controller: pwdInputController,
+                            obscureText: true,
+                            validator: pwdValidator,
                           ),
-                          child: Text(
-                            LoginRegisterPageStrings().confirmPassword,
-                            style: TextStyle(
-                              fontSize: SizeConfig.safeBlockHorizontal * 3,
-                              color: Colors.grey,
+                          SizedBox(
+                            height: SizeConfig.blockSizeVertical * 2,
+                          ),
+                          Container(
+                            margin: EdgeInsets.symmetric(
+                              horizontal: SizeConfig.blockSizeHorizontal * 3,
+                              vertical: 0,
+                            ),
+                            child: Text(
+                              LoginRegisterPageStrings().confirmPassword,
+                              style: TextStyle(
+                                fontSize: SizeConfig.safeBlockHorizontal * 3,
+                                color: Colors.grey,
+                              ),
                             ),
                           ),
-                        ),
-                        TextFormField(
-                          controller: confirmPwdInputController,
-                          obscureText: true,
-                          validator: pwdValidator,
-                        ),
-                        Center(
-                          child: Container(
-                            margin: EdgeInsets.only(
-                              top: SizeConfig.blockSizeVertical * 3,
-                            ),
-                            width: SizeConfig.blockSizeHorizontal * 35,
-                            height: SizeConfig.blockSizeVertical * 5,
-                            child: RaisedButton(
-                              child: Text(
-                                LoginRegisterPageStrings().registerButton,
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.w700,
+                          TextFormField(
+                            controller: confirmPwdInputController,
+                            obscureText: true,
+                            validator: pwdValidator,
+                          ),
+                          Center(
+                            child: Container(
+                              margin: EdgeInsets.only(
+                                top: SizeConfig.blockSizeVertical * 3,
+                              ),
+                              width: SizeConfig.blockSizeHorizontal * 35,
+                              height: SizeConfig.blockSizeVertical * 5,
+                              child: RaisedButton(
+                                child: Text(
+                                  LoginRegisterPageStrings().registerButton,
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.w700,
+                                  ),
                                 ),
-                              ),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(5.0),
-                              ),
-                              color: blue,
-                              onPressed: () async {
-                                await checkStatus(
-                                    context, emailInputController.text);
-                                if (registerFormKey.currentState.validate()) {
-                                  if (pwdInputController.text ==
-                                      confirmPwdInputController.text) {
-                                    allowUserToRegister
-                                        ? FirebaseAuth.instance
-                                            .createUserWithEmailAndPassword(
-                                                email:
-                                                    emailInputController.text,
-                                                password:
-                                                    pwdInputController.text)
-                                            .then((authResult) => Firestore
-                                                .instance
-                                                .collection("users")
-                                                .document(authResult.user.uid)
-                                                .setData({
-                                                  "uid": authResult.user.uid,
-                                                  "password":
-                                                      pwdInputController.text,
-                                                  "email":
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(5.0),
+                                ),
+                                color: blue,
+                                onPressed: () async {
+                                  FocusScope.of(context).unfocus();
+                                  FocusScope.of(context)
+                                      .requestFocus(new FocusNode());
+                                  await checkStatus(
+                                      context, emailInputController.text);
+
+                                  if (registerFormKey.currentState.validate()) {
+                                    if (pwdInputController.text ==
+                                        confirmPwdInputController.text) {
+                                      allowUserToRegister
+                                          ? FirebaseAuth.instance
+                                              .createUserWithEmailAndPassword(
+                                                  email:
                                                       emailInputController.text,
-                                                })
-                                                .then((result) => {
-                                                      Navigator
-                                                          .pushAndRemoveUntil(
-                                                              context,
-                                                              MaterialPageRoute(
-                                                                builder: (context) =>
-                                                                    ChangeNotifierProvider<
-                                                                        CategoryChangeIndex>(
-                                                                  child: ListOfFoods(
-                                                                      uid: authResult
-                                                                          .user
-                                                                          .uid),
-                                                                  create: (BuildContext
-                                                                          context) =>
-                                                                      CategoryChangeIndex(),
+                                                  password:
+                                                      pwdInputController.text)
+                                              .then((authResult) => Firestore
+                                                  .instance
+                                                  .collection("users")
+                                                  .document(authResult.user.uid)
+                                                  .setData({
+                                                    "uid": authResult.user.uid,
+                                                    "password":
+                                                        pwdInputController.text,
+                                                    "email":
+                                                        emailInputController
+                                                            .text,
+                                                  })
+                                                  .then((result) => {
+                                                        Navigator
+                                                            .pushAndRemoveUntil(
+                                                                context,
+                                                                MaterialPageRoute(
+                                                                  builder: (context) =>
+                                                                      ChangeNotifierProvider<
+                                                                          CategoryChangeIndex>(
+                                                                    child: ListOfFoods(
+                                                                        uid: authResult
+                                                                            .user
+                                                                            .uid),
+                                                                    create: (BuildContext
+                                                                            context) =>
+                                                                        CategoryChangeIndex(),
+                                                                  ),
                                                                 ),
-                                                              ),
-                                                              (_) => false),
-                                                      emailInputController
-                                                          .clear(),
-                                                      pwdInputController
-                                                          .clear(),
-                                                      confirmPwdInputController
-                                                          .clear()
-                                                    })
-                                                .catchError(
-                                                    (err) => print(err)))
-                                            .catchError((err) => print(err))
-                                        : showDialog(
-                                            context: context,
-                                            builder: (BuildContext context) {
-                                              return AlertDialog(
-                                                title: Text("Error"),
-                                                content: Text(
-                                                    "Email already in use"),
-                                                actions: <Widget>[
-                                                  FlatButton(
-                                                    child: Text("Close"),
-                                                    onPressed: () {
-                                                      Navigator.of(context)
-                                                          .pop();
-                                                    },
-                                                  )
-                                                ],
-                                              );
-                                            });
-                                  } else {
-                                    showDialog(
-                                        context: context,
-                                        builder: (BuildContext context) {
-                                          return AlertDialog(
-                                            title: Text("Error"),
-                                            content: Text(
-                                                "The passwords do not match"),
-                                            actions: <Widget>[
-                                              FlatButton(
-                                                child: Text("Close"),
-                                                onPressed: () {
-                                                  Navigator.of(context).pop();
-                                                },
-                                              )
-                                            ],
-                                          );
-                                        });
+                                                                (_) => false),
+                                                        emailInputController
+                                                            .clear(),
+                                                        pwdInputController
+                                                            .clear(),
+                                                        confirmPwdInputController
+                                                            .clear()
+                                                      })
+                                                  .catchError(
+                                                      (err) => print(err)))
+                                              .catchError((err) => print(err))
+                                          : showDialog(
+                                              context: context,
+                                              builder: (BuildContext context) {
+                                                return AlertDialog(
+                                                  title: Text("Error"),
+                                                  content: Text(
+                                                      "Email already in use"),
+                                                  actions: <Widget>[
+                                                    FlatButton(
+                                                      child: Text("Close"),
+                                                      onPressed: () {
+                                                        Navigator.of(context)
+                                                            .pop();
+                                                      },
+                                                    )
+                                                  ],
+                                                );
+                                              });
+                                    } else {
+                                      showDialog(
+                                          context: context,
+                                          builder: (BuildContext context) {
+                                            return AlertDialog(
+                                              title: Text("Error"),
+                                              content: Text(
+                                                  "The passwords do not match"),
+                                              actions: <Widget>[
+                                                FlatButton(
+                                                  child: Text("Close"),
+                                                  onPressed: () {
+                                                    Navigator.of(context).pop();
+                                                  },
+                                                )
+                                              ],
+                                            );
+                                          });
+                                    }
                                   }
-                                }
-                              },
+                                },
+                              ),
                             ),
                           ),
-                        ),
-                      ],
-                    ),
-                  )
-                ],
+                        ],
+                      ),
+                    )
+                  ],
+                ),
               ),
             ),
-          ),
-        ));
+          )),
+    );
   }
 }

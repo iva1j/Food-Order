@@ -1,5 +1,7 @@
 import 'package:FoodOrder/utils/colors.dart';
 import 'package:FoodOrder/utils/sizeconfig.dart';
+import 'package:FoodOrder/view/CartScreen/widgets/buttonIcon.dart';
+import 'package:FoodOrder/view/CartScreen/widgets/buttonText.dart';
 import 'package:flutter/material.dart';
 
 class CartButtonContainer extends StatelessWidget {
@@ -22,22 +24,8 @@ class CartButtonContainer extends StatelessWidget {
         padding: EdgeInsets.all(8.0),
         onPressed: () {},
         child: Row(children: [
-          Container(
-            margin: EdgeInsets.only(left: SizeConfig.blockSizeHorizontal * 9),
-            child: Icon(
-              Icons.shopping_cart,
-              size: 20,
-            ),
-          ),
-          Container(
-            margin: EdgeInsets.only(left: SizeConfig.blockSizeHorizontal * 3),
-            child: Text(
-              "Checkout",
-              style: TextStyle(
-                fontSize: 14.0,
-              ),
-            ),
-          ),
+          ButtonIcon(),
+          ButtonText(),
         ]),
       ),
     );
