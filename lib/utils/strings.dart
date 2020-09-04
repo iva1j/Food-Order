@@ -28,4 +28,6 @@ class FoodElements {
 
 class ShoppingCart {
   String title = "Shopping Cart";
+  String ordersTitle = "Your Orders";
+  String total = "Total";
 }

@@ -57,6 +57,9 @@ flutter:
     - assets/images/dude.png
     - assets/images/milk.png
     - assets/images/drawerbg.png
+    - assets/images/done.png
+    - assets/images/failed.png
+    - assets/images/pending.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
