@@ -1,7 +1,5 @@
 import 'package:FoodOrder/utils/internetConnectivity.dart';
 import 'package:FoodOrder/utils/sizeconfig.dart';
-import 'package:FoodOrder/view/loginAndRegister/login/pages/login.dart';
-import 'package:FoodOrder/view/loginAndRegister/sharedWidgets/signWithGoogleButton.dart';
 import 'package:FoodOrder/view/mainScreen/widgets/Drawer/mainDrawer.dart';
 import 'package:FoodOrder/view/mainScreen/widgets/appBarTitle.dart';
 import 'package:FoodOrder/view/mainScreen/widgets/FoodCategory/categoryCards.dart';
@@ -41,12 +39,16 @@ class _ListOfFoodsState extends State<ListOfFoods> {
     SizeConfig().init(context);
     return Scaffold(
       appBar: AppBar(
+        centerTitle: true,
         iconTheme: IconThemeData(color: Colors.grey),
         elevation: 0,
         backgroundColor: Colors.white,
         title: AppBarTitle(),
         actions: <Widget>[
-          CartButton(),
+          Container(
+              margin:
+                  EdgeInsets.only(right: SizeConfig.blockSizeHorizontal * 2),
+              child: CartButton()),
         ],
       ),
       drawer: MainDrawer(),
