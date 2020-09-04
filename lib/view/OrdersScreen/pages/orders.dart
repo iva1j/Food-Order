@@ -57,22 +57,27 @@ class _OrdersPageState extends State<OrdersPage> {
                             Text("price", style: TextStyle(color: darkblue)),
                           ],
                         ),
-                        Container(
-                          margin: EdgeInsets.only(
-                              top: SizeConfig.blockSizeVertical * 4),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: [
-                              Image.asset(
-                                "assets/images/done.png",
-                                width: SizeConfig.blockSizeVertical * 3,
-                              ),
-                              Text("Shipped",
-                                  style: TextStyle(color: Colors.green)),
-                              Text(ShoppingCart().total,
-                                  style: TextStyle(color: darkblue)),
-                              Text("price", style: TextStyle(color: darkblue)),
-                            ],
+                        Padding(
+                          padding: EdgeInsets.only(
+                              bottom: SizeConfig.blockSizeVertical * 2),
+                          child: Container(
+                            margin: EdgeInsets.only(
+                                top: SizeConfig.blockSizeVertical * 4),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                Image.asset(
+                                  "assets/images/done.png",
+                                  width: SizeConfig.blockSizeVertical * 3,
+                                ),
+                                Text("Shipped",
+                                    style: TextStyle(color: Colors.green)),
+                                Text(ShoppingCart().total,
+                                    style: TextStyle(color: darkblue)),
+                                Text("price",
+                                    style: TextStyle(color: darkblue)),
+                              ],
+                            ),
                           ),
                         ),
                       ],
