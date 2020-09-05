@@ -41,6 +41,7 @@ class _ListOfFoodsState extends State<ListOfFoods> {
     SizeConfig().init(context);
     return Scaffold(
       appBar: AppBar(
+        centerTitle: true,
         iconTheme: IconThemeData(color: Colors.grey),
         elevation: 0,
         backgroundColor: Colors.white,

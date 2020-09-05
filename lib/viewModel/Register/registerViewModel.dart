@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:FoodOrder/providers/categoryChangeNotifier.dart';
 import 'package:FoodOrder/utils/globalVariables.dart';
 import 'package:FoodOrder/view/mainScreen/pages/listOfFood.dart';
@@ -46,75 +48,76 @@ Future onPressedRegButton(BuildContext context) async {
   FocusScope.of(context).unfocus();
   FocusScope.of(context).requestFocus(new FocusNode());
   await checkStatus(context, emailInputController.text);
-
-  if (registerFormKey.currentState.validate()) {
-    if (pwdInputController.text == confirmPwdInputController.text) {
-      allowUserToRegister
-          ? FirebaseAuth.instance
-              .createUserWithEmailAndPassword(
-                  email: emailInputController.text,
-                  password: pwdInputController.text)
-              .then((authResult) => Firestore.instance
-                  .collection("users")
-                  .document(authResult.user.uid)
-                  .setData({
-                    "uid": authResult.user.uid,
-                    "password": pwdInputController.text,
-                    "email": emailInputController.text,
-                  })
-                  .then((result) => {
-                        Navigator.pushAndRemoveUntil(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) =>
-                                  ChangeNotifierProvider<CategoryChangeIndex>(
-                                child: ListOfFoods(uid: authResult.user.uid),
-                                create: (BuildContext context) =>
-                                    CategoryChangeIndex(),
+  Timer(Duration(seconds: 1), () {
+    if (registerFormKey.currentState.validate()) {
+      if (pwdInputController.text == confirmPwdInputController.text) {
+        allowUserToRegister
+            ? FirebaseAuth.instance
+                .createUserWithEmailAndPassword(
+                    email: emailInputController.text,
+                    password: pwdInputController.text)
+                .then((authResult) => Firestore.instance
+                    .collection("users")
+                    .document(authResult.user.uid)
+                    .setData({
+                      "uid": authResult.user.uid,
+                      "password": pwdInputController.text,
+                      "email": emailInputController.text,
+                    })
+                    .then((result) => {
+                          Navigator.pushAndRemoveUntil(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) =>
+                                    ChangeNotifierProvider<CategoryChangeIndex>(
+                                  child: ListOfFoods(uid: authResult.user.uid),
+                                  create: (BuildContext context) =>
+                                      CategoryChangeIndex(),
+                                ),
                               ),
-                            ),
-                            (_) => false),
-                        emailInputController.clear(),
-                        pwdInputController.clear(),
-                        confirmPwdInputController.clear()
-                      })
-                  .catchError((err) => print(err)))
-              .catchError((err) => print(err))
-          : showDialog(
-              context: context,
-              builder: (BuildContext context) {
-                return AlertDialog(
-                  title: Text("Error"),
-                  content: Text("Email already in use"),
-                  actions: <Widget>[
-                    FlatButton(
-                      child: Text("Close"),
-                      onPressed: () {
-                        Navigator.of(context).pop();
-                      },
-                    )
-                  ],
-                );
-              });
-    } else {
-      showDialog(
-          context: context,
-          builder: (BuildContext context) {
-            return AlertDialog(
-              title: Text("Error"),
-              content: Text("The passwords do not match"),
-              actions: <Widget>[
-                FlatButton(
-                  child: Text("Close"),
-                  onPressed: () {
-                    Navigator.of(context).pop();
-                  },
-                )
-              ],
-            );
-          });
+                              (_) => false),
+                          emailInputController.clear(),
+                          pwdInputController.clear(),
+                          confirmPwdInputController.clear()
+                        })
+                    .catchError((err) => print(err)))
+                .catchError((err) => print(err))
+            : showDialog(
+                context: context,
+                builder: (BuildContext context) {
+                  return AlertDialog(
+                    title: Text("Error"),
+                    content: Text("Email already in use"),
+                    actions: <Widget>[
+                      FlatButton(
+                        child: Text("Close"),
+                        onPressed: () {
+                          Navigator.of(context).pop();
+                        },
+                      )
+                    ],
+                  );
+                });
+      } else {
+        showDialog(
+            context: context,
+            builder: (BuildContext context) {
+              return AlertDialog(
+                title: Text("Error"),
+                content: Text("The passwords do not match"),
+                actions: <Widget>[
+                  FlatButton(
+                    child: Text("Close"),
+                    onPressed: () {
+                      Navigator.of(context).pop();
+                    },
+                  )
+                ],
+              );
+            });
+      }
     }
-  }
+  });
 }
 
 void removeFocusRegister(BuildContext context) {

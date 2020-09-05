@@ -20,10 +20,10 @@ class _RegisterState extends State<Register> {
         child: Column(
           children: [
             ImageCard(),
-            RegisterCard(),
+            RegisterCard(), 
             HorizontalLine(),
             SignWithGoogleButton(),
-            BottomLoginText()
+            BottomLoginText() 
           ],
         ),
       ),

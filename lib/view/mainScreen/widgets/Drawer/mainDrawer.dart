@@ -1,4 +1,5 @@
 import 'package:FoodOrder/utils/sizeconfig.dart';
+import 'package:FoodOrder/view/OrdersScreen/pages/orders.dart';
 import 'package:FoodOrder/view/loginAndRegister/login/pages/login.dart';
 import 'package:FoodOrder/view/loginAndRegister/sharedWidgets/signWithGoogleButton.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -14,9 +15,10 @@ class MainDrawer extends StatelessWidget {
         children: [
           DrawerHeader(
             decoration: BoxDecoration(
-                image: DecorationImage(
-                    image: AssetImage("assets/images/drawerbg.png"),
-                    fit: BoxFit.cover)),
+              image: DecorationImage(
+                  image: AssetImage("assets/images/drawerbg.png"),
+                  fit: BoxFit.cover),
+            ),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.end,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -33,7 +35,10 @@ class MainDrawer extends StatelessWidget {
           ListTile(
             leading: Icon(Icons.shopping_cart),
             title: Text("Your Orders"),
-            onTap: () {},
+            onTap: () {
+              Navigator.of(context)
+                  .push(MaterialPageRoute(builder: (_) => OrdersPage()));
+            },
           ),
           ListTile(
             leading: Icon(Icons.exit_to_app),

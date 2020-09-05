@@ -1,6 +1,6 @@
-import 'package:FoodOrder/view/OrdersScreen/pages/orders.dart';
+import 'package:FoodOrder/view/loginAndRegister/register/pages/register.dart';
 import 'package:flutter/material.dart';
-
+ 
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -9,7 +9,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Material App',
-      home: OrdersPage(),
+      home: Register(),
     );
   }
 }
