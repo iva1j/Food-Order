@@ -1,13 +1,17 @@
 import 'package:FoodOrder/utils/colors.dart';
+import 'package:FoodOrder/utils/globalVariables.dart';
 import 'package:FoodOrder/utils/sizeconfig.dart';
 import 'package:FoodOrder/utils/strings.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class OrdersShipped extends StatelessWidget {
   const OrdersShipped({
     Key key,
+    this.index,
   }) : super(key: key);
-
+  final DocumentSnapshot index;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -23,7 +27,12 @@ class OrdersShipped extends StatelessWidget {
             ),
             Text("Shipped", style: TextStyle(color: Colors.green)),
             Text(ShoppingCart().total, style: TextStyle(color: darkblue)),
-            Text("price", style: TextStyle(color: darkblue)),
+            Text(
+                NumberFormat.currency(locale: 'eu', symbol: '€').format(
+                  (double.parse(
+                      '${index['totalOrderPrice'].toString().replaceAll(',', '.')}')),
+                ),
+                style: TextStyle(color: darkblue)),
           ],
         ),
       ),

@@ -1,5 +1,6 @@
 import 'package:FoodOrder/utils/internetConnectivity.dart';
 import 'package:FoodOrder/utils/sizeconfig.dart';
+import 'package:FoodOrder/view/OrdersScreen/pages/orders.dart';
 import 'package:FoodOrder/view/mainScreen/widgets/Drawer/mainDrawer.dart';
 import 'package:FoodOrder/view/mainScreen/widgets/appBarTitle.dart';
 import 'package:FoodOrder/view/mainScreen/widgets/FoodCategory/categoryCards.dart';
@@ -32,6 +33,7 @@ class _ListOfFoodsState extends State<ListOfFoods> {
     ListOfFoodViewModel().initMeals();
     InternetConnectivity().checkForConnectivity();
     this.getCurrentUser();
+    getAllOrders();
     super.initState();
   }
 
