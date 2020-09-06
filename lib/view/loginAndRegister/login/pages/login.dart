@@ -1,6 +1,6 @@
 import 'package:FoodOrder/utils/sizeconfig.dart';
+import 'package:FoodOrder/view/loginAndRegister/login/widgets/bottomLoginText.dart';
 import 'package:FoodOrder/view/loginAndRegister/login/widgets/loginCard.dart';
-import 'package:FoodOrder/view/loginAndRegister/register/widgets/bottomLoginText.dart';
 import 'package:FoodOrder/view/loginAndRegister/sharedWidgets/horizontalLine.dart';
 import 'package:FoodOrder/view/loginAndRegister/sharedWidgets/imageCard.dart';
 import 'package:FoodOrder/view/loginAndRegister/sharedWidgets/signWithGoogleButton.dart';

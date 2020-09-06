@@ -3,8 +3,8 @@ import 'package:FoodOrder/utils/strings.dart';
 import 'package:FoodOrder/view/loginAndRegister/login/pages/login.dart';
 import 'package:flutter/material.dart';
 
-class BottomLoginText extends StatelessWidget {
-  const BottomLoginText({
+class BottomRegisterText extends StatelessWidget {
+  const BottomRegisterText({
     Key key,
   }) : super(key: key);
 
