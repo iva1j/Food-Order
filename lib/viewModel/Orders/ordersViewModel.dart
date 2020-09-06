@@ -9,7 +9,7 @@ class OrdersViewModel {
     for (final x in cartMeals) {
       totalOrderPrice += x.counter * double.parse(x.price);
     }
-    final orderID = randomAlphaNumeric(10);
+    final orderID = randomNumeric(10);
     Firestore.instance
         .collection("users")
         .document(userID)
