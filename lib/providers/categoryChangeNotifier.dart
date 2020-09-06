@@ -5,6 +5,7 @@ import 'package:flutter/cupertino.dart';
 import '../models/meal.dart';
 import '../utils/globalVariables.dart';
 import '../utils/globalVariables.dart';
+import '../utils/globalVariables.dart';
 import '../view/mainScreen/widgets/dummy_data.dart';
 
 String categoryID;
@@ -13,7 +14,7 @@ List<Meal> cartMeals = List<Meal>();
 
 class CategoryChangeIndex with ChangeNotifier {
   double _cartTotal = 0.0;
-  int _selectedIndex = 0;
+  int _selectedIndex;
   get currentIndex => _selectedIndex;
 
   get cartTotal => _cartTotal;
@@ -23,7 +24,17 @@ class CategoryChangeIndex with ChangeNotifier {
     notifyListeners();
   }
 
+  clearCounter(int index) {
+    cartMeals[index].counter = 0;
+    if (cartMeals[index].newPrice != cartMeals[index].price)
+      cartTotal -= double.parse(cartMeals[index].newPrice);
+    cartMeals[index].newPrice = cartMeals[index].price;
+    notifyListeners();
+  }
+
   set decrementCounter(int index) {
+    print("NA DEKREMENTU");
+    print(inCart);
     if (inCart) {
       var price = double.parse(cartMeals[index].price);
 
@@ -40,8 +51,10 @@ class CategoryChangeIndex with ChangeNotifier {
             : cartMeals[index].newPrice.toString();
 
         notifyListeners();
-      } else
+      } else {
         cartMeals[index].counter = 0;
+      }
+
       notifyListeners();
     } else {
       var price = double.parse(categoryMeals[index].price);
@@ -61,13 +74,17 @@ class CategoryChangeIndex with ChangeNotifier {
         print('ukupna cijena: ');
         print(categoryMeals[index].newPrice);
         notifyListeners();
-      } else
+      } else {
         categoryMeals[index].counter = 0;
+      }
+
       notifyListeners();
     }
   }
 
   set incrementCounter(int index) {
+    print("NA INKREMENTU");
+    print(inCart);
     if (inCart) {
       cartMeals[index].counter++;
 

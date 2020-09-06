@@ -8,10 +8,11 @@ import 'package:intl/intl.dart';
 
 import '../../providers/categoryChangeNotifier.dart';
 import '../../utils/globalVariables.dart';
+import '../../utils/globalVariables.dart';
 
 class ListOfFood {
   initMeals() {
-    categoryID = DUMMY_CATEGORIES[0].id;
+    categoryID = DUMMY_CATEGORIES[currentTab].id;
     categoryMeals = DUMMY_MEALS.where((meal) {
       return meal.categories.contains(categoryID);
     }).toList();

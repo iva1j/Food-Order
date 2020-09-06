@@ -8,6 +8,7 @@ import 'package:provider/provider.dart';
 
 import '../../../providers/categoryChangeNotifier.dart';
 import '../../../utils/globalVariables.dart';
+import 'dummy_data.dart';
 
 class CartButton extends StatelessWidget {
   const CartButton({
@@ -24,7 +25,13 @@ class CartButton extends StatelessWidget {
             color: darkblue,
             size: 30,
           ),
-          badgeContent: Text('10'),
+          badgeContent: Text(DUMMY_MEALS
+              .where((meal) {
+                return meal.counter > 0;
+              })
+              .toList()
+              .length
+              .toString()),
           badgeColor: Colors.orange,
           animationType: BadgeAnimationType.scale,
           animationDuration: Duration(milliseconds: 130),
