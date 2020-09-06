@@ -11,9 +11,11 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../../../providers/categoryChangeNotifier.dart';
 import '../../../utils/globalVariables.dart';
 import '../../../utils/globalVariables.dart';
 import '../../../utils/globalVariables.dart';
+import '../widgets/dummy_data.dart';
 
 class ListOfFoods extends StatefulWidget {
   ListOfFoods({Key key, this.uid}) : super(key: key);
@@ -41,9 +43,6 @@ class _ListOfFoodsState extends State<ListOfFoods> {
 
   @override
   Widget build(BuildContext context) {
-    print("THIS HAPPENED");
-
-    // print(inCart);
     SizeConfig().init(context);
     return Scaffold(
       appBar: AppBar(

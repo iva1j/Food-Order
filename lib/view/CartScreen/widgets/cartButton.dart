@@ -1,3 +1,4 @@
+import 'package:FoodOrder/providers/categoryChangeNotifier.dart';
 import 'package:FoodOrder/utils/colors.dart';
 import 'package:FoodOrder/utils/sizeconfig.dart';
 import 'package:FoodOrder/view/CartScreen/widgets/buttonIcon.dart';
@@ -28,6 +29,7 @@ class CartButtonContainer extends StatelessWidget {
         onPressed: () async {
           OrdersViewModel().insertOrder();
           await getAllOrders();
+         cartMeals.clear();
           await Navigator.of(context).pushReplacement(
             MaterialPageRoute(
               builder: (_) => OrdersPage(),
