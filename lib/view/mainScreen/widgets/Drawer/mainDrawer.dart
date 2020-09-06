@@ -1,3 +1,4 @@
+import 'package:FoodOrder/utils/globalVariables.dart';
 import 'package:FoodOrder/utils/sizeconfig.dart';
 import 'package:FoodOrder/view/OrdersScreen/pages/orders.dart';
 import 'package:FoodOrder/view/loginAndRegister/login/pages/login.dart';
@@ -50,6 +51,7 @@ class MainDrawer extends StatelessWidget {
                   .then((result) => Navigator.pushReplacement(context,
                       MaterialPageRoute(builder: (context) => Login())))
                   .catchError((err) => print(err));
+              email = null;
             },
           ),
         ],

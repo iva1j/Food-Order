@@ -48,7 +48,7 @@ Future onPressedRegButton(BuildContext context) async {
   FocusScope.of(context).unfocus();
   FocusScope.of(context).requestFocus(new FocusNode());
   await checkStatus(context, emailInputController.text);
-  Timer(Duration(seconds: 1), () {
+  Timer(Duration(milliseconds: 500), () {
     if (registerFormKey.currentState.validate()) {
       if (pwdInputController.text == confirmPwdInputController.text) {
         allowUserToRegister
@@ -117,6 +117,7 @@ Future onPressedRegButton(BuildContext context) async {
             });
       }
     }
+    email = emailInputController.text;
   });
 }
 

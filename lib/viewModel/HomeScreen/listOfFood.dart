@@ -1,4 +1,5 @@
 import 'package:FoodOrder/services/homeScreen/listOfScreen.dart';
+import 'package:FoodOrder/utils/globalVariables.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 

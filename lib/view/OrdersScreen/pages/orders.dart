@@ -14,7 +14,6 @@ class OrdersPage extends StatefulWidget {
 class _OrdersPageState extends State<OrdersPage> {
   @override
   Widget build(BuildContext context) {
-    getOrders();
     final theme = Theme.of(context).copyWith(dividerColor: Colors.transparent);
     SizeConfig().init(context);
     return MaterialApp(
