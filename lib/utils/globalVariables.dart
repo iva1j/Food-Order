@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 var hasActiveConnection = false;
 var allowUserToRegister = false;
 var status = false;
+bool inCart = false;
 
 final GlobalKey<FormState> registerFormKey = GlobalKey<FormState>();
 final GlobalKey<FormState> loginFormKey = GlobalKey<FormState>();

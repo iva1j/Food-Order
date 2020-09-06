@@ -12,11 +12,13 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../../../utils/globalVariables.dart';
+import '../../../utils/globalVariables.dart';
+
 class ListOfFoods extends StatefulWidget {
   ListOfFoods({Key key, this.uid}) : super(key: key);
 
   final String uid;
-  //ListOfFoods(BuildContext context);
 
   @override
   _ListOfFoodsState createState() => _ListOfFoodsState();
@@ -38,6 +40,7 @@ class _ListOfFoodsState extends State<ListOfFoods> {
 
   @override
   Widget build(BuildContext context) {
+    inCart = false;
     SizeConfig().init(context);
     return Scaffold(
       appBar: AppBar(
@@ -52,7 +55,10 @@ class _ListOfFoodsState extends State<ListOfFoods> {
       ),
       drawer: MainDrawer(),
       body: Column(
-        children: [CategoryCard(), FoodCard()],
+        children: [
+          CategoryCard(),
+          FoodCard(),
+        ],
       ),
     );
   }

@@ -8,6 +8,9 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../../providers/categoryChangeNotifier.dart';
+import '../../providers/categoryChangeNotifier.dart';
+
 Future<bool> userExistingorNot(String email) async {
   final QuerySnapshot result = await Firestore.instance
       .collection('users')
@@ -76,6 +79,7 @@ Future onPressedRegButton(BuildContext context) async {
                                 ),
                               ),
                               (_) => false),
+                          //ChangeNotifierProvider<CategoryChangeIndex>(create: (context) => CategoryChangeIndex(), child: MaterialPageRoute(builder: (context) => ), ),
                           emailInputController.clear(),
                           pwdInputController.clear(),
                           confirmPwdInputController.clear()

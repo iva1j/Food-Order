@@ -10,7 +10,10 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class FoodInfo extends StatefulWidget {
-  const FoodInfo({Key key, this.index}) : super(key: key);
+  const FoodInfo({
+    Key key,
+    this.index,
+  }) : super(key: key);
   final int index;
 
   @override
@@ -28,7 +31,7 @@ class _FoodInfoState extends State<FoodInfo> {
         margin: Margin().symmetric(1, 3),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: [ 
+          children: [
             FoodName(index: widget.index),
             FoodDesc(widget: widget, widget2: widget),
             QuantityAndPrice(index: widget.index)

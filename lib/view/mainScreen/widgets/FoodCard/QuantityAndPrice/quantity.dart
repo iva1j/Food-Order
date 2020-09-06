@@ -5,6 +5,9 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../../../../../providers/categoryChangeNotifier.dart';
+import '../../../../../utils/globalVariables.dart';
+
 class Quantity extends StatefulWidget {
   const Quantity({
     Key key,
@@ -23,7 +26,9 @@ class _QuantityState extends State<Quantity> {
   Widget build(BuildContext context) {
     final provider = Provider.of<CategoryChangeIndex>(context);
     return Text(
-      categoryMeals[widget.index].counter.toString(),
+      inCart == false
+          ? categoryMeals[widget.index].counter.toString()
+          : cartMeals[widget.index].counter.toString(),
       style: quantityStyle(),
     );
   }

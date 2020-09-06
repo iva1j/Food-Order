@@ -3,6 +3,8 @@ import 'package:FoodOrder/view/CartScreen/pages/cart.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../../../utils/globalVariables.dart';
+
 class CartButton extends StatelessWidget {
   const CartButton({
     Key key,
@@ -17,8 +19,12 @@ class CartButton extends StatelessWidget {
           size: 30,
         ),
         onPressed: () {
-          Navigator.of(context)
-              .push(MaterialPageRoute(builder: (_) => CartPage()));
+          inCart = true;
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (_) => CartPage(),
+            ),
+          );
         });
   }
 }
