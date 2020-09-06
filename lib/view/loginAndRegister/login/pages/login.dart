@@ -5,6 +5,9 @@ import 'package:FoodOrder/view/loginAndRegister/sharedWidgets/horizontalLine.dar
 import 'package:FoodOrder/view/loginAndRegister/sharedWidgets/imageCard.dart';
 import 'package:FoodOrder/view/loginAndRegister/sharedWidgets/signWithGoogleButton.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import '../../../../providers/categoryChangeNotifier.dart';
 
 class Login extends StatefulWidget {
   @override
@@ -14,6 +17,7 @@ class Login extends StatefulWidget {
 class _LoginState extends State<Login> {
   @override
   Widget build(BuildContext context) {
+    Provider.of<CategoryChangeIndex>(context).currentIndex = 0;
     SizeConfig().init(context);
     return Scaffold(
       body: SingleChildScrollView(

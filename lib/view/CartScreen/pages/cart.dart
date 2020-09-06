@@ -10,10 +10,12 @@ import '../../../providers/categoryChangeNotifier.dart';
 import '../../../providers/categoryChangeNotifier.dart';
 import '../../../providers/categoryChangeNotifier.dart';
 import '../../../providers/categoryChangeNotifier.dart';
+import '../../../providers/categoryChangeNotifier.dart';
 import '../../../services/homeScreen/listOfScreen.dart';
 import '../../../services/homeScreen/listOfScreen.dart';
 import '../../../services/homeScreen/listOfScreen.dart';
 import '../../../services/homeScreen/listOfScreen.dart';
+import '../../../utils/globalVariables.dart';
 import '../../../utils/globalVariables.dart';
 import '../../../utils/globalVariables.dart';
 import '../../../utils/margins.dart';
@@ -34,14 +36,15 @@ class _CartPageState extends State<CartPage> {
   @override
   void initState() {
     // TODO: implement initState
-    cartMeals = DUMMY_MEALS.where((meal) {
-      return meal.counter > 0;
-    }).toList();
+
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
+    cartMeals = DUMMY_MEALS.where((meal) {
+      return meal.counter > 0;
+    }).toList();
     final provider = Provider.of<CategoryChangeIndex>(context);
     print("OVO JE CARTTOTAL");
     print(Provider.of<CategoryChangeIndex>(context).cartTotal);
@@ -61,6 +64,7 @@ class _CartPageState extends State<CartPage> {
           leading: InkWell(
             onTap: () {
               inCart = false;
+
               Navigator.of(context).pushReplacement(
                 MaterialPageRoute(
                   builder: (_) => ListOfFoods(),
@@ -154,6 +158,16 @@ class _CartPageState extends State<CartPage> {
                                         Names().increase,
                                         style: increaseQuantityButtonStyle(),
                                       ),
+                                    ),
+                                  ),
+                                  Spacer(),
+                                  InkWell(
+                                    onTap: () {
+                                      provider.clearCounter(index);
+                                    },
+                                    child: Icon(
+                                      Icons.delete,
+                                      color: Colors.grey,
                                     ),
                                   ),
                                   Spacer(),
