@@ -42,10 +42,9 @@ class _CartPageState extends State<CartPage> {
 
   @override
   Widget build(BuildContext context) {
-    print("OVO JE USERID");
-    print(userID);
-    print(inCart);
     final provider = Provider.of<CategoryChangeIndex>(context);
+    print("OVO JE CARTTOTAL");
+    print(Provider.of<CategoryChangeIndex>(context).cartTotal);
     SizeConfig().init(context);
     return MaterialApp(
       debugShowCheckedModeBanner: false,

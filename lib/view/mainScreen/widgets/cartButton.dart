@@ -3,7 +3,9 @@ import 'package:FoodOrder/view/CartScreen/pages/cart.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:badges/badges.dart';
+import 'package:provider/provider.dart';
 
+import '../../../providers/categoryChangeNotifier.dart';
 import '../../../utils/globalVariables.dart';
 
 class CartButton extends StatelessWidget {
@@ -13,6 +15,7 @@ class CartButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final provider = Provider.of<CategoryChangeIndex>(context);
     return IconButton(
         icon: Badge(
           child: Icon(
@@ -27,9 +30,11 @@ class CartButton extends StatelessWidget {
         ),
         onPressed: () {
           inCart = true;
+          print("OVDJE CARTTOTAL");
+          print(provider.cartTotal);
           Navigator.of(context).pushReplacement(
             MaterialPageRoute(
-              builder: (_) => CartPage(),
+              builder: (BuildContext context) => CartPage(),
             ),
           );
         });

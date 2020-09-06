@@ -69,6 +69,7 @@ Future onPressedRegButton(BuildContext context) async {
                       "email": emailInputController.text,
                     })
                     .then((result) => {
+                          /*
                           Navigator.pushAndRemoveUntil(
                               context,
                               MaterialPageRoute(
@@ -79,8 +80,13 @@ Future onPressedRegButton(BuildContext context) async {
                                       CategoryChangeIndex(),
                                 ),
                               ),
-                              (_) => false),
-                          //ChangeNotifierProvider<CategoryChangeIndex>(create: (context) => CategoryChangeIndex(), child: MaterialPageRoute(builder: (context) => ), ),
+                              (_) => false),*/
+                          Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => ListOfFoods(),
+                            ),
+                          ),
                           emailInputController.clear(),
                           pwdInputController.clear(),
                           confirmPwdInputController.clear()

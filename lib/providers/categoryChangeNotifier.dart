@@ -12,12 +12,16 @@ List<Meal> categoryMeals = List<Meal>();
 List<Meal> cartMeals = List<Meal>();
 
 class CategoryChangeIndex with ChangeNotifier {
-  double cartTotal = 0.0;
+  double _cartTotal = 0.0;
   int _selectedIndex = 0;
-  int counter = 0;
   get currentIndex => _selectedIndex;
 
-  get decrement => counter;
+  get cartTotal => _cartTotal;
+
+  set cartTotal(double total) {
+    _cartTotal = total;
+    notifyListeners();
+  }
 
   set decrementCounter(int index) {
     if (inCart) {
@@ -62,8 +66,6 @@ class CategoryChangeIndex with ChangeNotifier {
       notifyListeners();
     }
   }
-
-  get increment => counter;
 
   set incrementCounter(int index) {
     if (inCart) {

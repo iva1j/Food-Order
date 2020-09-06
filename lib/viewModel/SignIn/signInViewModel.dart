@@ -37,7 +37,8 @@ Future onPressedButtonLogin(BuildContext context) async {
             .document(authResult.user.uid)
             .get()
             .then(
-              (DocumentSnapshot result) => Navigator.pushReplacement(
+              (DocumentSnapshot result) =>
+                  /*Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(
                   builder: (context) =>
@@ -45,6 +46,12 @@ Future onPressedButtonLogin(BuildContext context) async {
                     child: ListOfFoods(uid: authResult.user.uid),
                     create: (BuildContext context) => CategoryChangeIndex(),
                   ),
+                ),
+              ),*/
+                  Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => ListOfFoods(),
                 ),
               ),
             )
