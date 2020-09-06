@@ -97,7 +97,7 @@ TextStyle quantityStyle() {
 TextStyle priceStyle() => TextStyle(color: Colors.black38, fontSize: 20);
 TextStyle appBarStyle() {
   return TextStyle(
-    color: Colors.black45,
+    color: darkblue,
     fontFamily: 'Roboto',
   );
 }

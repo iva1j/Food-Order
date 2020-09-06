@@ -6,6 +6,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../providers/categoryChangeNotifier.dart';
+import '../../../../utils/globalVariables.dart';
+
 class FoodDesc extends StatelessWidget {
   const FoodDesc({
     Key key,
@@ -20,17 +23,26 @@ class FoodDesc extends StatelessWidget {
   Widget build(BuildContext context) {
     ///This code will be normally factorized but since we will
     //////provide just 1 line of code (when real data API come), I left this code like this to minimaze doing unuseless job
-    ///new output will be like this: 
+    ///new output will be like this:
     ///return Text(categoryMeals[widget.index].foodDesc, style: foodInfoStyle());
     return Text(
-      categoryMeals[widget.index].ingredients.toString().contains('[')
-          ? FoodElements().ingridients +
-              categoryMeals[widget.index]
-                  .ingredients
-                  .toString()
-                  .replaceAll('[', '')
-                  .replaceAll(']', '')
-          : 'Food details are not provided',
+      inCart == false
+          ? categoryMeals[widget.index].ingredients.toString().contains('[')
+              ? FoodElements().ingridients +
+                  categoryMeals[widget.index]
+                      .ingredients
+                      .toString()
+                      .replaceAll('[', '')
+                      .replaceAll(']', '')
+              : 'Food details are not provided'
+          : cartMeals[widget.index].ingredients.toString().contains('[')
+              ? FoodElements().ingridients +
+                  cartMeals[widget.index]
+                      .ingredients
+                      .toString()
+                      .replaceAll('[', '')
+                      .replaceAll(']', '')
+              : 'Food details are not provided',
       style: foodInfoStyle(),
     );
   }

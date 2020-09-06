@@ -6,6 +6,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
+import '../../providers/categoryChangeNotifier.dart';
+import '../../utils/globalVariables.dart';
+
 class ListOfFood {
   initMeals() {
     categoryID = DUMMY_CATEGORIES[0].id;
@@ -33,15 +36,24 @@ class ListOfFood {
   }
 
   String priceFormatter(int index) {
-    return (categoryMeals[index].newPrice == null)
-        ? NumberFormat.currency(locale: 'eu', symbol: '€').format(
-            (double.parse(
-                '${categoryMeals[index].price.toString().replaceAll(',', '.')}')),
-          )
-        : NumberFormat.currency(locale: 'eu', symbol: '€').format(
-            (double.parse(
-                '${categoryMeals[index].newPrice.toString().replaceAll(',', '.')}')),
-          );
+    return inCart == false
+        ? (categoryMeals[index].newPrice == null)
+            ? NumberFormat.currency(locale: 'eu', symbol: '€').format(
+                (double.parse(
+                    '${categoryMeals[index].price.toString().replaceAll(',', '.')}')),
+              )
+            : NumberFormat.currency(locale: 'eu', symbol: '€').format(
+                (double.parse(
+                    '${categoryMeals[index].newPrice.toString().replaceAll(',', '.')}')),
+              )
+        : (cartMeals[index].newPrice == null)
+            ? NumberFormat.currency(locale: 'eu', symbol: '€').format(
+                (double.parse(
+                    '${cartMeals[index].price.toString().replaceAll(',', '.')}')),
+              )
+            : NumberFormat.currency(locale: 'eu', symbol: '€').format(
+                (double.parse(
+                    '${cartMeals[index].newPrice.toString().replaceAll(',', '.')}')),
+              );
   }
-
 }
