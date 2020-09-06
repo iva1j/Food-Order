@@ -1,6 +1,7 @@
 import 'package:FoodOrder/providers/categoryChangeNotifier.dart';
 import 'package:FoodOrder/utils/globalVariables.dart';
 import 'package:FoodOrder/view/mainScreen/pages/listOfFood.dart';
+import 'package:FoodOrder/viewModel/Register/registerViewModel.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -27,6 +28,7 @@ Future onPressedButtonLogin(BuildContext context) async {
   await isUserRegistered();
 
   if (loginFormKey.currentState.validate() && status == true) {
+    await getUserID();
     FirebaseAuth.instance
         .signInWithEmailAndPassword(
             email: emailInputController.text, password: pwdInputController.text)

@@ -45,6 +45,8 @@ class MainDrawer extends StatelessWidget {
             leading: Icon(Icons.exit_to_app),
             title: Text("Logout"),
             onTap: () {
+              email = null;
+              userID = null;
               signOut();
               FirebaseAuth.instance
                   .signOut()

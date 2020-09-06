@@ -51,7 +51,7 @@ Future onPressedRegButton(BuildContext context) async {
   FocusScope.of(context).unfocus();
   FocusScope.of(context).requestFocus(new FocusNode());
   await checkStatus(context, emailInputController.text);
-  Timer(Duration(milliseconds: 500), () {
+  Timer(Duration(milliseconds: 500), () async {
     if (registerFormKey.currentState.validate()) {
       if (pwdInputController.text == confirmPwdInputController.text) {
         allowUserToRegister
@@ -102,6 +102,7 @@ Future onPressedRegButton(BuildContext context) async {
                     ],
                   );
                 });
+     await getUserID();
       } else {
         showDialog(
             context: context,
@@ -130,4 +131,17 @@ void removeFocusRegister(BuildContext context) {
   if (!currentFocus.hasPrimaryFocus && currentFocus.focusedChild != null) {
     currentFocus.focusedChild.unfocus();
   }
+}
+
+Future getUserID() async {
+  final QuerySnapshot qs = await Firestore.instance
+      .collection('users')
+      .where('email', isEqualTo: email)
+      .getDocuments();
+
+  final List<DocumentSnapshot> ds = qs.documents;
+  userID = ds[0]['uid'];
+  print('userID: ');
+  print(userID);
+  return ds[0]['uid'];
 }
