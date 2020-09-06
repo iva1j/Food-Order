@@ -15,6 +15,7 @@ import '../../../services/homeScreen/listOfScreen.dart';
 import '../../../services/homeScreen/listOfScreen.dart';
 import '../../../services/homeScreen/listOfScreen.dart';
 import '../../../utils/globalVariables.dart';
+import '../../../utils/globalVariables.dart';
 import '../../../utils/margins.dart';
 import '../../../utils/sizeconfig.dart';
 import '../../../utils/style.dart';
@@ -41,6 +42,8 @@ class _CartPageState extends State<CartPage> {
 
   @override
   Widget build(BuildContext context) {
+    print("OVO JE USERID");
+    print(userID);
     print(inCart);
     final provider = Provider.of<CategoryChangeIndex>(context);
     SizeConfig().init(context);

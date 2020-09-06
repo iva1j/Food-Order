@@ -2,6 +2,7 @@ import 'package:FoodOrder/utils/colors.dart';
 import 'package:FoodOrder/utils/sizeconfig.dart';
 import 'package:FoodOrder/view/CartScreen/widgets/buttonIcon.dart';
 import 'package:FoodOrder/view/CartScreen/widgets/buttonText.dart';
+import 'package:FoodOrder/viewModel/Orders/ordersViewModel.dart';
 import 'package:flutter/material.dart';
 
 class CartButtonContainer extends StatelessWidget {
@@ -22,7 +23,9 @@ class CartButtonContainer extends StatelessWidget {
         color: blue,
         textColor: Colors.white,
         padding: EdgeInsets.all(8.0),
-        onPressed: () {},
+        onPressed: () {
+          OrdersViewModel().insertOrder();
+        },
         child: Row(children: [
           ButtonIcon(),
           ButtonText(),
