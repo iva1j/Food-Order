@@ -6,12 +6,22 @@ import 'package:FoodOrder/view/mainScreen/widgets/Drawer/mainDrawer.dart';
 import 'package:FoodOrder/viewModel/Orders/ordersViewModel.dart';
 import 'package:flutter/material.dart';
 
+Future<void> getAllOrders() async {
+  await getOrders();
+}
+
 class OrdersPage extends StatefulWidget {
   @override
   _OrdersPageState createState() => _OrdersPageState();
 }
 
 class _OrdersPageState extends State<OrdersPage> {
+  @override
+  void initState() {
+    getAllOrders();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context).copyWith(dividerColor: Colors.transparent);
@@ -30,8 +40,8 @@ class _OrdersPageState extends State<OrdersPage> {
                 borderRadius: BorderRadius.only(
                     bottomLeft: Radius.circular(25.0),
                     bottomRight: Radius.circular(25.0))),
+            iconTheme: new IconThemeData(color: darkblue)
           ),
-          // leading: Icon(Icons.clear, color: Colors.grey)),
           drawer: MainDrawer(),
           body: OrdersCard()),
     );

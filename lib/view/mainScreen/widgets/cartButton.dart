@@ -1,5 +1,6 @@
 import 'package:FoodOrder/utils/colors.dart';
 import 'package:FoodOrder/view/CartScreen/pages/cart.dart';
+import 'package:FoodOrder/viewModel/Orders/ordersViewModel.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:badges/badges.dart';
@@ -25,7 +26,7 @@ class CartButton extends StatelessWidget {
           animationType: BadgeAnimationType.scale,
           animationDuration: Duration(milliseconds: 130),
         ),
-        onPressed: () {
+        onPressed: () async {
           inCart = true;
           Navigator.of(context).pushReplacement(
             MaterialPageRoute(

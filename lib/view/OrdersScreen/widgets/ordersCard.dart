@@ -2,6 +2,7 @@ import 'package:FoodOrder/utils/colors.dart';
 import 'package:FoodOrder/utils/globalVariables.dart';
 import 'package:FoodOrder/utils/margins.dart';
 import 'package:FoodOrder/utils/sizeconfig.dart';
+import 'package:FoodOrder/view/OrdersScreen/pages/orders.dart';
 import 'package:FoodOrder/view/OrdersScreen/widgets/ordersPriceName.dart';
 import 'package:FoodOrder/view/OrdersScreen/widgets/ordersShipped.dart';
 import 'package:flutter/material.dart';
@@ -16,6 +17,12 @@ class OrdersCard extends StatefulWidget {
 }
 
 class _OrdersCardState extends State<OrdersCard> {
+  @override
+  void initState() {
+    getAllOrders();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
@@ -36,7 +43,7 @@ class _OrdersCardState extends State<OrdersCard> {
                   ),
                   child: ExpansionTile(
                     title: Text(
-                      orderList[index]['productName'],
+                      'Order' + orderList[index]['orderID'].toString(),
                       style: TextStyle(color: darkblue),
                     ),
                     backgroundColor: lightblue,

@@ -102,7 +102,7 @@ Future onPressedRegButton(BuildContext context) async {
                     ],
                   );
                 });
-     await getUserID();
+        await getUserID();
       } else {
         showDialog(
             context: context,
@@ -136,12 +136,12 @@ void removeFocusRegister(BuildContext context) {
 Future getUserID() async {
   final QuerySnapshot qs = await Firestore.instance
       .collection('users')
-      .where('email', isEqualTo: email)
+      .where('email', isEqualTo: emailInputController.text)
       .getDocuments();
 
-  final List<DocumentSnapshot> ds = qs.documents;
-  userID = ds[0]['uid'];
+  final List<DocumentSnapshot> userRecords = qs.documents;
+  userID = userRecords[0]['uid'];
   print('userID: ');
   print(userID);
-  return ds[0]['uid'];
+  return userRecords[0]['uid'];
 }
