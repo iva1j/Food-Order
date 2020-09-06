@@ -10,6 +10,7 @@ import 'package:provider/provider.dart';
 
 import '../../providers/categoryChangeNotifier.dart';
 import '../../providers/categoryChangeNotifier.dart';
+import '../../utils/globalVariables.dart';
 
 Future<bool> userExistingorNot(String email) async {
   final QuerySnapshot result = await Firestore.instance
@@ -102,7 +103,7 @@ Future onPressedRegButton(BuildContext context) async {
                     ],
                   );
                 });
-     await getUserID();
+        await getUserID();
       } else {
         showDialog(
             context: context,
@@ -136,7 +137,7 @@ void removeFocusRegister(BuildContext context) {
 Future getUserID() async {
   final QuerySnapshot qs = await Firestore.instance
       .collection('users')
-      .where('email', isEqualTo: email)
+      .where('email', isEqualTo: emailInputController.text)
       .getDocuments();
 
   final List<DocumentSnapshot> ds = qs.documents;

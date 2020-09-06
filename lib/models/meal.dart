@@ -26,4 +26,13 @@ class Meal {
       @required this.ingredients,
       this.newPrice,
       this.counter});
+
+  Map<String, dynamic> toMap() {
+    return {
+      'title': title,
+      'price': price,
+      'totalPrice': newPrice,
+      'count': counter,
+    };
+  }
 }
