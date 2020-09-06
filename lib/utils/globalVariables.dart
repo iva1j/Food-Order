@@ -7,6 +7,7 @@ var hasActiveConnection = false;
 var allowUserToRegister = false;
 var status = false;
 bool inCart = false;
+var currentTab = 0;
 
 final GlobalKey<FormState> registerFormKey = GlobalKey<FormState>();
 final GlobalKey<FormState> loginFormKey = GlobalKey<FormState>();
@@ -33,7 +34,6 @@ FirebaseUser user;
 
 //order page
 List<DocumentSnapshot> orderList = List<DocumentSnapshot>();
-
 
 String email;
 String userID;

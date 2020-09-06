@@ -6,6 +6,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../utils/globalVariables.dart';
+
 class CategoryCardBody extends StatefulWidget {
   const CategoryCardBody({
     Key key,
@@ -25,6 +27,7 @@ class _CategoryCardBodyState extends State<CategoryCardBody> {
     return GestureDetector(
       onTap: () {
         widget.provider.currentIndex = widget.index;
+        currentTab = widget.index;
       },
       child: Center(
         child: Padding(
