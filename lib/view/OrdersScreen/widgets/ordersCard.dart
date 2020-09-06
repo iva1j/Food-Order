@@ -1,3 +1,5 @@
+import 'package:FoodOrder/models/meal.dart';
+import 'package:FoodOrder/providers/categoryChangeNotifier.dart';
 import 'package:FoodOrder/utils/colors.dart';
 import 'package:FoodOrder/utils/globalVariables.dart';
 import 'package:FoodOrder/utils/margins.dart';
@@ -43,7 +45,7 @@ class _OrdersCardState extends State<OrdersCard> {
                   ),
                   child: ExpansionTile(
                     title: Text(
-                      'Order' + orderList[index]['orderID'].toString(),
+                      orderList[index]['orderID'].toString(),
                       style: TextStyle(color: darkblue),
                     ),
                     backgroundColor: lightblue,
@@ -52,7 +54,7 @@ class _OrdersCardState extends State<OrdersCard> {
                       Column(
                         children: [
                           OrdersPriceRow(index: index),
-                          OrdersShipped(),
+                          OrdersShipped(index: orderList[index]),
                         ],
                       ),
                     ],

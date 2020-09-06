@@ -5,7 +5,11 @@ import 'package:random_string/random_string.dart';
 
 class OrdersViewModel {
   insertOrder() {
-    final orderID = randomNumeric(5);
+    double totalOrderPrice = 0;
+    for (final x in cartMeals) {
+      totalOrderPrice += x.counter * double.parse(x.price);
+    }
+    final orderID = randomAlphaNumeric(10);
     Firestore.instance
         .collection("users")
         .document(userID)
@@ -13,7 +17,8 @@ class OrdersViewModel {
         .document(orderID)
         .setData({
       'orderID': orderID,
-      'orderMeals': cartMeals,
+      'orderMeals': cartMeals.map((e) => e.toMap()).toList(),
+      'totalOrderPrice': totalOrderPrice,
     });
     return null;
   }
@@ -30,6 +35,5 @@ Future getOrders() async {
   orderList = orders.documents;
   print('list: ');
   print(orderList[0]['orderID']);
-  // print(orderList[0]);
   return favoritesDocs;
 }

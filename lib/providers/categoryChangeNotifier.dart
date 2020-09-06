@@ -11,13 +11,6 @@ String categoryID;
 List<Meal> categoryMeals = List<Meal>();
 List<Meal> cartMeals = List<Meal>();
 
-/*
-int returnMealIndexByImageURL(String imgURL) {
-  for (int i = 0; i < DUMMY_MEALS.length; i++)
-    if (DUMMY_MEALS[i].imageUrl == imgURL) return i;
-  return -1;
-}
-*/
 class CategoryChangeIndex with ChangeNotifier {
   double cartTotal = 0.0;
   int _selectedIndex = 0;
@@ -100,6 +93,8 @@ class CategoryChangeIndex with ChangeNotifier {
       print(categoryMeals[index].newPrice);
       notifyListeners();
     }
+    print("CARTTOTAL");
+    print(cartTotal);
   }
 
   set currentIndex(int index) {
