@@ -2,6 +2,7 @@ import 'package:FoodOrder/utils/colors.dart';
 import 'package:FoodOrder/view/CartScreen/pages/cart.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:badges/badges.dart';
 
 import '../../../utils/globalVariables.dart';
 
@@ -13,10 +14,16 @@ class CartButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return IconButton(
-        icon: Icon(
-          Icons.add_shopping_cart,
-          color: orange,
-          size: 30,
+        icon: Badge(
+          child: Icon(
+            Icons.shopping_cart,
+            color: darkblue,
+            size: 30,
+          ),
+          badgeContent: Text('10'),
+          badgeColor: Colors.orange,
+          animationType: BadgeAnimationType.scale,
+          animationDuration: Duration(milliseconds: 130),
         ),
         onPressed: () {
           inCart = true;

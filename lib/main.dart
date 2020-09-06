@@ -1,9 +1,12 @@
 import 'package:FoodOrder/view/loginAndRegister/register/pages/register.dart';
 import 'package:flutter/material.dart';
+<<<<<<< HEAD
 import 'package:provider/provider.dart';
 
 import 'providers/categoryChangeNotifier.dart';
 import 'view/loginAndRegister/login/pages/login.dart';
+=======
+>>>>>>> master
 
 void main() => runApp(MyApp());
 
