@@ -1,5 +1,6 @@
 import 'package:FoodOrder/utils/sizeconfig.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 
 import '../../../providers/categoryChangeNotifier.dart';
@@ -31,7 +32,10 @@ class CartPriceContainer extends StatelessWidget {
           Container(
             margin: EdgeInsets.only(left: SizeConfig.blockSizeHorizontal * 50),
             child: Text(
-              "15",
+              NumberFormat.currency(locale: 'eu', symbol: '€').format(
+                (double.parse(
+                    '${provider.cartTotal.toString().replaceAll(',', '.')}')),
+              ),
               style: TextStyle(color: Colors.grey, fontSize: 20),
             ),
           ),

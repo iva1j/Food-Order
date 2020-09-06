@@ -9,6 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../../../utils/globalVariables.dart';
+import '../../../../utils/globalVariables.dart';
 
 class FoodCard extends StatefulWidget {
   const FoodCard({
@@ -22,7 +23,7 @@ class FoodCard extends StatefulWidget {
 class _FoodCardState extends State<FoodCard> {
   @override
   Widget build(BuildContext context) {
-    inCart = false;
+    //inCart = false;
     final provider = Provider.of<CategoryChangeIndex>(context);
     SizeConfig().init(context);
     return Expanded(

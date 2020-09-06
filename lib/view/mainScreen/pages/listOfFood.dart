@@ -14,6 +14,7 @@ import 'package:flutter/material.dart';
 
 import '../../../utils/globalVariables.dart';
 import '../../../utils/globalVariables.dart';
+import '../../../utils/globalVariables.dart';
 
 class ListOfFoods extends StatefulWidget {
   ListOfFoods({Key key, this.uid}) : super(key: key);
@@ -40,7 +41,9 @@ class _ListOfFoodsState extends State<ListOfFoods> {
 
   @override
   Widget build(BuildContext context) {
-    inCart = false;
+    print("THIS HAPPENED");
+
+    print(inCart);
     SizeConfig().init(context);
     return Scaffold(
       appBar: AppBar(

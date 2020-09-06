@@ -14,8 +14,11 @@ import '../../../services/homeScreen/listOfScreen.dart';
 import '../../../services/homeScreen/listOfScreen.dart';
 import '../../../services/homeScreen/listOfScreen.dart';
 import '../../../services/homeScreen/listOfScreen.dart';
+import '../../../utils/globalVariables.dart';
 import '../../../utils/margins.dart';
 import '../../../utils/sizeconfig.dart';
+import '../../../utils/style.dart';
+import '../../../viewModel/HomeScreen/listOfFood.dart';
 import '../../mainScreen/pages/listOfFood.dart';
 import '../../mainScreen/widgets/FoodCard/buildShowDialog.dart';
 import '../../mainScreen/widgets/FoodCard/foodInfo.dart';
@@ -38,6 +41,8 @@ class _CartPageState extends State<CartPage> {
 
   @override
   Widget build(BuildContext context) {
+    print(inCart);
+    final provider = Provider.of<CategoryChangeIndex>(context);
     SizeConfig().init(context);
     return MaterialApp(
       debugShowCheckedModeBanner: false,
@@ -53,15 +58,10 @@ class _CartPageState extends State<CartPage> {
           backgroundColor: Colors.white,
           leading: InkWell(
             onTap: () {
-              Provider.of<CategoryChangeIndex>(context).currentIndex = 0;
-              Navigator.pushReplacement(
-                context,
+              inCart = false;
+              Navigator.of(context).pushReplacement(
                 MaterialPageRoute(
-                  builder: (context) =>
-                      ChangeNotifierProvider<CategoryChangeIndex>(
-                    child: ListOfFoods(),
-                    create: (BuildContext context) => CategoryChangeIndex(),
-                  ),
+                  builder: (_) => ListOfFoods(),
                 ),
               );
             },
@@ -94,8 +94,74 @@ class _CartPageState extends State<CartPage> {
                               fit: BoxFit.fill,
                               height: 300,
                             ),
+                            /*
                             FoodInfo(
                               index: index,
+                            ),*/
+                            Text(
+                              cartMeals[index].title,
+                              style: foodNameStyle(),
+                            ),
+                            Text(
+                              cartMeals[index]
+                                      .ingredients
+                                      .toString()
+                                      .contains('[')
+                                  ? FoodElements().ingridients +
+                                      cartMeals[index]
+                                          .ingredients
+                                          .toString()
+                                          .replaceAll('[', '')
+                                          .replaceAll(']', '')
+                                  : 'Food details are not provided',
+                              style: foodInfoStyle(),
+                            ),
+                            Container(
+                              margin: Margin().only(2, 0, 2, 0),
+                              child: Row(
+                                children: [
+                                  SizedBox(
+                                    width: 35,
+                                    height: 35,
+                                    child: FlatButton(
+                                      padding: Margin().all(0),
+                                      onPressed: () {
+                                        ListOfFoodViewModel().decreaseAmount(
+                                            provider, context, index);
+                                      },
+                                      child: Text(
+                                        Names().decrease,
+                                        style: decreaseQuantityButtonStyle(),
+                                      ),
+                                    ),
+                                  ),
+                                  Text(
+                                    cartMeals[index].counter.toString(),
+                                    style: quantityStyle(),
+                                  ),
+                                  SizedBox(
+                                    width: 35,
+                                    height: 35,
+                                    child: FlatButton(
+                                      padding: Margin().all(0),
+                                      onPressed: () {
+                                        ListOfFoodViewModel().increaseAmount(
+                                            provider, context, index);
+                                      },
+                                      child: Text(
+                                        Names().increase,
+                                        style: increaseQuantityButtonStyle(),
+                                      ),
+                                    ),
+                                  ),
+                                  Spacer(),
+                                  Text(
+                                    ListOfFoodViewModel()
+                                        .priceFormatterViewModel(index),
+                                    style: priceStyle(),
+                                  ),
+                                ],
+                              ),
                             ),
                           ],
                         ),
