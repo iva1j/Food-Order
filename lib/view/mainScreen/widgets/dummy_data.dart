@@ -249,7 +249,7 @@ var DUMMY_MEALS = [
       'c5',
       'c10',
     ],
-    title: 'Asparagus Salad with Cherry Tomatoes',
+    title: 'Asparagus Salad with Cherry',
     imageUrl:
         'https://cdn.pixabay.com/photo/2018/04/09/18/26/asparagus-3304997_1280.jpg',
     ingredients: [

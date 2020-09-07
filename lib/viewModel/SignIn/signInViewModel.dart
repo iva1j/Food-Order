@@ -28,7 +28,7 @@ Future onPressedButtonLogin(BuildContext context) async {
   await isUserRegistered();
 
   if (loginFormKey.currentState.validate() && status == true) {
-    await getUserID();
+    userID = await getUserID();
     FirebaseAuth.instance
         .signInWithEmailAndPassword(
             email: emailInputController.text, password: pwdInputController.text)

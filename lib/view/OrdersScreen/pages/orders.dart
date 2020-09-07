@@ -1,13 +1,15 @@
 import 'package:FoodOrder/utils/colors.dart';
 import 'package:FoodOrder/utils/sizeconfig.dart';
 import 'package:FoodOrder/utils/strings.dart';
+import 'package:FoodOrder/utils/globalVariables.dart';
 import 'package:FoodOrder/view/OrdersScreen/widgets/ordersCard.dart';
 import 'package:FoodOrder/view/mainScreen/widgets/Drawer/mainDrawer.dart';
 import 'package:FoodOrder/viewModel/Orders/ordersViewModel.dart';
 import 'package:flutter/material.dart';
+import 'package:FoodOrder/viewModel/Register/registerViewModel.dart';
 
 Future<void> getAllOrders() async {
-  await getOrders();
+ orderList =  await getOrders();
 }
 
 class OrdersPage extends StatefulWidget {
