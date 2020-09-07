@@ -10,10 +10,6 @@ class TextPassword extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.symmetric(
-        horizontal: SizeConfig.blockSizeHorizontal * 3,
-        vertical: 0,
-      ),
       child: Text(
         LoginRegisterPageStrings().password,
         style: TextStyle(

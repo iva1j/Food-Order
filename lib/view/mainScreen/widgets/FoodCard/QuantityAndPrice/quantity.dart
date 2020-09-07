@@ -26,9 +26,7 @@ class _QuantityState extends State<Quantity> {
   Widget build(BuildContext context) {
     final provider = Provider.of<CategoryChangeIndex>(context);
     return Text(
-      inCart == false
-          ? categoryMeals[widget.index].counter.toString()
-          : cartMeals[widget.index].counter.toString(),
+      categoryMeals[widget.index].counter.toString(),
       style: quantityStyle(),
     );
   }

@@ -26,7 +26,7 @@ class _LoginState extends State<Login> {
             ImageCard(),
             LoginCard(),
             HorizontalLine(),
-            SignWithGoogleButton(),
+            //SignWithGoogleButton(),
             BottomLoginText()
           ],
         ),

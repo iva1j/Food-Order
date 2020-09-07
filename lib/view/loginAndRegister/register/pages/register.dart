@@ -22,7 +22,7 @@ class _RegisterState extends State<Register> {
             ImageCard(),
             RegisterCard(),
             HorizontalLine(),
-            SignWithGoogleButton(),
+            //SignWithGoogleButton(),
             BottomRegisterText()
           ],
         ),

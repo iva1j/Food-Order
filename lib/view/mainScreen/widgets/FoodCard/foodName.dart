@@ -22,9 +22,7 @@ class _FoodNameState extends State<FoodName> {
   @override
   Widget build(BuildContext context) {
     return Text(
-      inCart == false
-          ? categoryMeals[widget.index].title
-          : cartMeals[widget.index].title,
+      categoryMeals[widget.index].title,
       style: foodNameStyle(),
     );
   }
