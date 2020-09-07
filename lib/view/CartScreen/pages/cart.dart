@@ -4,6 +4,7 @@ import 'package:FoodOrder/view/CartScreen/widgets/cartButton.dart';
 import 'package:FoodOrder/view/CartScreen/widgets/cartCard.dart';
 import 'package:FoodOrder/view/CartScreen/widgets/cartPrice.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 
 import '../../../providers/categoryChangeNotifier.dart';
@@ -21,6 +22,7 @@ import '../../../utils/globalVariables.dart';
 import '../../../utils/globalVariables.dart';
 import '../../../utils/margins.dart';
 import '../../../utils/sizeconfig.dart';
+import '../../../utils/style.dart';
 import '../../../utils/style.dart';
 import '../../../viewModel/HomeScreen/listOfFood.dart';
 import '../../mainScreen/pages/listOfFood.dart';
@@ -100,10 +102,6 @@ class _CartPageState extends State<CartPage> {
                                     fit: BoxFit.fill,
                                     height: 300,
                                   ),
-                                  /*
-                            FoodInfo(
-                              index: index,
-                            ),*/
                                   Text(
                                     cartMeals[index].title,
                                     style: foodNameStyle(),
@@ -175,9 +173,25 @@ class _CartPageState extends State<CartPage> {
                                           ),
                                         ),
                                         Spacer(),
-                                        Text(
+                                        /*Text(
                                           ListOfFoodViewModel()
                                               .priceFormatterViewModel(index),
+                                          style: priceStyle(),
+                                        ),*/
+                                        Text(
+                                          (cartMeals[index].newPrice == null)
+                                              ? NumberFormat.currency(
+                                                      locale: 'eu', symbol: '€')
+                                                  .format(
+                                                  (double.parse(
+                                                      '${cartMeals[index].price.toString().replaceAll(',', '.')}')),
+                                                )
+                                              : NumberFormat.currency(
+                                                      locale: 'eu', symbol: '€')
+                                                  .format(
+                                                  (double.parse(
+                                                      '${cartMeals[index].newPrice.toString().replaceAll(',', '.')}')),
+                                                ),
                                           style: priceStyle(),
                                         ),
                                       ],

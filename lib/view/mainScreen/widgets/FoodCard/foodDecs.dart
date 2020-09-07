@@ -26,23 +26,14 @@ class FoodDesc extends StatelessWidget {
     ///new output will be like this:
     ///return Text(categoryMeals[widget.index].foodDesc, style: foodInfoStyle());
     return Text(
-      inCart == false
-          ? categoryMeals[widget.index].ingredients.toString().contains('[')
-              ? FoodElements().ingridients +
-                  categoryMeals[widget.index]
-                      .ingredients
-                      .toString()
-                      .replaceAll('[', '')
-                      .replaceAll(']', '')
-              : 'Food details are not provided'
-          : cartMeals[widget.index].ingredients.toString().contains('[')
-              ? FoodElements().ingridients +
-                  cartMeals[widget.index]
-                      .ingredients
-                      .toString()
-                      .replaceAll('[', '')
-                      .replaceAll(']', '')
-              : 'Food details are not provided',
+      categoryMeals[widget.index].ingredients.toString().contains('[')
+          ? FoodElements().ingridients +
+              categoryMeals[widget.index]
+                  .ingredients
+                  .toString()
+                  .replaceAll('[', '')
+                  .replaceAll(']', '')
+          : 'Food details are not provided',
       style: foodInfoStyle(),
     );
   }

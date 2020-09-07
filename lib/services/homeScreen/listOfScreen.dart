@@ -37,24 +37,14 @@ class ListOfFood {
   }
 
   String priceFormatter(int index) {
-    return inCart == false
-        ? (categoryMeals[index].newPrice == null)
-            ? NumberFormat.currency(locale: 'eu', symbol: '€').format(
-                (double.parse(
-                    '${categoryMeals[index].price.toString().replaceAll(',', '.')}')),
-              )
-            : NumberFormat.currency(locale: 'eu', symbol: '€').format(
-                (double.parse(
-                    '${categoryMeals[index].newPrice.toString().replaceAll(',', '.')}')),
-              )
-        : (cartMeals[index].newPrice == null)
-            ? NumberFormat.currency(locale: 'eu', symbol: '€').format(
-                (double.parse(
-                    '${cartMeals[index].price.toString().replaceAll(',', '.')}')),
-              )
-            : NumberFormat.currency(locale: 'eu', symbol: '€').format(
-                (double.parse(
-                    '${cartMeals[index].newPrice.toString().replaceAll(',', '.')}')),
-              );
+    return (categoryMeals[index].newPrice == null)
+        ? NumberFormat.currency(locale: 'eu', symbol: '€').format(
+            (double.parse(
+                '${categoryMeals[index].price.toString().replaceAll(',', '.')}')),
+          )
+        : NumberFormat.currency(locale: 'eu', symbol: '€').format(
+            (double.parse(
+                '${categoryMeals[index].newPrice.toString().replaceAll(',', '.')}')),
+          );
   }
 }

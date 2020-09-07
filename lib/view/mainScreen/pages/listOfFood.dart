@@ -53,9 +53,9 @@ class _ListOfFoodsState extends State<ListOfFoods> {
         title: AppBarTitle(),
         actions: <Widget>[
           Container(
-              margin:
-                  EdgeInsets.only(right: SizeConfig.blockSizeHorizontal * 2),
-              child: CartButton()),
+            margin: EdgeInsets.only(right: SizeConfig.blockSizeHorizontal * 2),
+            child: CartButton(),
+          ),
         ],
       ),
       drawer: MainDrawer(),

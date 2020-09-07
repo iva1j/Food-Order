@@ -8,6 +8,8 @@ import 'package:FoodOrder/viewModel/SignIn/googleISignInViewModel.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../utils/globalVariables.dart';
+
 class MainDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -38,6 +40,7 @@ class MainDrawer extends StatelessWidget {
             leading: Icon(Icons.home),
             title: Text("Home"),
             onTap: () async {
+              inCart = false;
               await Navigator.of(context).pushReplacement(
                 MaterialPageRoute(
                   builder: (_) => ListOfFoods(),

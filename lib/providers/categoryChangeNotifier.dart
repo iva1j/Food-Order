@@ -7,6 +7,7 @@ import '../utils/globalVariables.dart';
 import '../utils/globalVariables.dart';
 import '../utils/globalVariables.dart';
 import '../view/mainScreen/widgets/dummy_data.dart';
+import '../view/mainScreen/widgets/dummy_data.dart';
 
 String categoryID;
 List<Meal> categoryMeals = List<Meal>();
@@ -29,6 +30,15 @@ class CategoryChangeIndex with ChangeNotifier {
     if (cartMeals[index].newPrice != cartMeals[index].price)
       cartTotal -= double.parse(cartMeals[index].newPrice);
     cartMeals[index].newPrice = cartMeals[index].price;
+    notifyListeners();
+  }
+
+  clearAllCounters() {
+    for (final x in DUMMY_MEALS) {
+      x.counter = 0;
+      x.newPrice = x.price;
+    }
+    cartTotal = 0;
     notifyListeners();
   }
 
