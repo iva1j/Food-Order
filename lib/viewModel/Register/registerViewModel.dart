@@ -68,7 +68,7 @@ Future onPressedRegButton(BuildContext context) async {
                       "password": pwdInputController.text,
                       "email": emailInputController.text,
                     })
-                    .then((result) => {
+                    .then((result) async => {
                           /*
                           Navigator.pushAndRemoveUntil(
                               context,
@@ -81,7 +81,10 @@ Future onPressedRegButton(BuildContext context) async {
                                 ),
                               ),
                               (_) => false),*/
-                          Navigator.pushReplacement(
+                          userID = await getUserID(),
+                          print('userIDDDDD: '),
+                          print(userID),
+                          await Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(
                               builder: (context) => ListOfFoods(),
@@ -109,7 +112,9 @@ Future onPressedRegButton(BuildContext context) async {
                     ],
                   );
                 });
-        await getUserID();
+
+        // userID = await receiver[0]['uid'];
+        // print('test: ' + userID);
       } else {
         showDialog(
             context: context,
@@ -147,8 +152,44 @@ Future getUserID() async {
       .getDocuments();
 
   final List<DocumentSnapshot> userRecords = qs.documents;
-  userID = userRecords[0]['uid'];
-  print('userID: ');
-  print(userID);
+  // userID = userRecords[0]['uid'];
+  // print('userID: ');
+  // print(userID);
   return userRecords[0]['uid'];
+}
+
+// Future getOrders() async {
+//   List<DocumentSnapshot> orderRecords = List<DocumentSnapshot>();
+
+//   FutureBuilder(
+//       future: Firestore.instance
+//           .collection("users")
+//           .document(userID)
+//           .collection('userOrders')
+//           .getDocuments(),
+//       builder: (BuildContext context, AsyncSnapshot snapshot) {
+//         if (snapshot.hasData) {
+//           orderRecords = snapshot.data.documents;
+//           print('userID svih korisnika:');
+//           print(orderRecords[0]['orderID']);
+//           orderList = orderRecords[0]['orderID'];
+//           return null;
+//         } else
+//           userID = null;
+//         return null;
+//       });
+// }
+
+Future getOrders() async {
+  final QuerySnapshot orders = await Firestore.instance
+      .collection("users")
+      .document(userID)
+      .collection('userOrders')
+      .getDocuments();
+  List<DocumentSnapshot> favoritesDocs = orders.documents;
+  // orderList.clear();
+  // orderList = orders.documents;
+  // print('list: ');
+  // print(orderList[0]['orderID']);
+  return orders.documents;
 }

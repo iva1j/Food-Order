@@ -28,7 +28,7 @@ class CartButtonContainer extends StatelessWidget {
         textColor: Colors.white,
         padding: EdgeInsets.all(8.0),
         onPressed: () async {
-          OrdersViewModel().insertOrder();
+          OrdersViewModel().insertOrder(); 
           await getAllOrders();
           Provider.of<CategoryChangeIndex>(context, listen: false)
               .clearAllCounters();

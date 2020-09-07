@@ -17,7 +17,7 @@ class Login extends StatefulWidget {
 class _LoginState extends State<Login> {
   @override
   Widget build(BuildContext context) {
-    Provider.of<CategoryChangeIndex>(context).currentIndex = 0;
+    // Provider.of<CategoryChangeIndex>(context).currentIndex = 0;
     SizeConfig().init(context);
     return Scaffold(
       body: SingleChildScrollView(

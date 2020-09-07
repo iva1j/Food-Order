@@ -22,18 +22,18 @@ class OrdersViewModel {
     });
     return null;
   }
-} 
-
-Future getOrders() async {
-  final QuerySnapshot orders = await Firestore.instance
-      .collection("users")
-      .document(userID)
-      .collection('userOrders')
-      .getDocuments();
-  List<DocumentSnapshot> favoritesDocs = orders.documents;
-  orderList.clear();
-  orderList = orders.documents;
-  print('list: ');
-  print(orderList[0]['orderID']);
-  return favoritesDocs;
 }
+
+// Future getOrders() async {
+//   final QuerySnapshot orders = await Firestore.instance
+//       .collection("users")
+//       .document(userID)
+//       .collection('userOrders')
+//       .getDocuments();
+//   List<DocumentSnapshot> favoritesDocs = orders.documents;
+//   orderList.clear();
+//   orderList = orders.documents;
+//   print('list: ');
+//   print(orderList[0]['orderID']);
+//   return favoritesDocs;
+// }

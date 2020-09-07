@@ -37,3 +37,4 @@ List<DocumentSnapshot> orderList = List<DocumentSnapshot>();
 
 String email;
 String userID;
+var receiver;
