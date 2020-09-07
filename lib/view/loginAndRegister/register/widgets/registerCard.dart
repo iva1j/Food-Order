@@ -11,6 +11,8 @@ import 'package:FoodOrder/viewModel/Register/registerViewModel.dart';
 import 'package:flutter/material.dart';
 import 'package:FoodOrder/utils/globalVariables.dart';
 
+import '../../../../utils/sizeconfig.dart';
+
 class RegisterCard extends StatefulWidget {
   RegisterCard({Key key}) : super(key: key);
   @override
@@ -69,6 +71,9 @@ class _RegisterCardState extends State<RegisterCard> {
                           ),
                           TextConfirmPass(),
                           ConfirmPassField(),
+                          SizedBox(
+                            height: SizeConfig.blockSizeVertical * 6,
+                          ),
                           RegisterButton(),
                         ],
                       ),

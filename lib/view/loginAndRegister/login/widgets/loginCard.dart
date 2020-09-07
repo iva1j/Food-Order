@@ -57,6 +57,9 @@ class _LoginCardState extends State<LoginCard> {
                       ),
                       TextLoginPassword(),
                       PasswordLoginField(),
+                      SizedBox(
+                        height: SizeConfig.blockSizeVertical * 10,
+                      ),
                       ButtonLogin(),
                     ],
                   ),

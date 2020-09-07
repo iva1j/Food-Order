@@ -1,3 +1,4 @@
+import 'package:FoodOrder/providers/categoryChangeNotifier.dart';
 import 'package:FoodOrder/utils/colors.dart';
 import 'package:FoodOrder/utils/sizeconfig.dart';
 import 'package:FoodOrder/view/CartScreen/widgets/buttonIcon.dart';
@@ -6,6 +7,7 @@ import 'package:FoodOrder/view/OrdersScreen/pages/orders.dart';
 import 'package:FoodOrder/view/OrdersScreen/widgets/ordersCard.dart';
 import 'package:FoodOrder/viewModel/Orders/ordersViewModel.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class CartButtonContainer extends StatelessWidget {
   const CartButtonContainer({
@@ -28,6 +30,8 @@ class CartButtonContainer extends StatelessWidget {
         onPressed: () async {
           OrdersViewModel().insertOrder();
           await getAllOrders();
+          Provider.of<CategoryChangeIndex>(context, listen: false)
+              .clearAllCounters();
           await Navigator.of(context).pushReplacement(
             MaterialPageRoute(
               builder: (_) => OrdersPage(),
