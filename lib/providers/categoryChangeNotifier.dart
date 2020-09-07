@@ -15,7 +15,8 @@ List<Meal> cartMeals = List<Meal>();
 
 class CategoryChangeIndex with ChangeNotifier {
   double _cartTotal = 0.0;
-  int _selectedIndex;
+  // int currentIndex = 0;
+  int _selectedIndex = 0;
   get currentIndex => _selectedIndex;
 
   get cartTotal => _cartTotal;
